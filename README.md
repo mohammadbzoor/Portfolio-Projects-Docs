@@ -26,6 +26,7 @@ This repository contains professional documentation for selected projects I have
 | Time4Study Study Planner       | Productivity / Study Planning Web App | React.js, Vite, Firebase, Bootstrap, Tailwind CSS | Coming Soon                                                             | [View Docs](./time4study-study-planner/README.md)       |
 | StoreReact E-Commerce App      | E-Commerce Web App                    | React.js, Firebase, SCSS                          | [Live Demo](https://mohammadbzoor-9490e.firebaseapp.com/)               | [View Docs](./store-react-ecommerce/README.md)          |
 | AIrRoute Smart Flight Platform | Hackathon / Smart Travel Platform     | React.js, Bootstrap, Gemini, Custom Dataset       | Coming Soon                                                             | [View Docs](./airroute-smart-flight-platform/README.md) |
+| TBR3 React Frontend            | Charity / Donation Platform Frontend  | React.js, Tailwind CSS, React Router              | Coming Soon                                                             | [View Docs](./tbr3-react-frontend/README.md)            |
 | TechNetwork                    | AI-Powered Recruitment Platform       | React.js, n8n, OpenAI, Pinecone, Cohere           | [AI Workflows](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer) | [View Docs](./technetwork/README.md)                    |
 
 ---
@@ -76,6 +77,9 @@ Portfolio-Projects-Docs/
 ├── airroute-smart-flight-platform/
 │   └── README.md
 │
+├── tbr3-react-frontend/
+│   └── README.md
+│
 └── technetwork/
     ├── README.md
     ├── frontend-development.md
@@ -91,6 +95,7 @@ Portfolio-Projects-Docs/
 | Full-Stack Web Applications   | Portfolio Web Application, Restaurant Management System, StoreReact                                   |
 | Educational Platforms         | Online Quiz Platform, Time4Study Study Planner                                                        |
 | E-Commerce & Ordering Systems | StoreReact E-Commerce App, Restaurant Management System                                               |
+| Charity / Donation Platforms  | TBR3 React Frontend                                                                                   |
 | Hackathon Projects            | AIrRoute Smart Flight Platform                                                                        |
 | AI-Powered Recruitment        | TechNetwork                                                                                           |
 | Firebase-Based Projects       | Portfolio Web Application, Restaurant Management System, Online Quiz Platform, StoreReact, Time4Study |
@@ -115,6 +120,7 @@ Some projects may have private source code, but their documentation is shared pu
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge\&logo=bootstrap\&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge\&logo=tailwind-css\&logoColor=white)
+![React Router](https://img.shields.io/badge/React%20Router-Routing-CA4245?style=for-the-badge\&logo=react-router\&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge\&logo=sass\&logoColor=white)
 ![n8n](https://img.shields.io/badge/n8n-Automation-EA4B71?style=for-the-badge)
 ![OpenAI](https://img.shields.io/badge/OpenAI-Integration-412991?style=for-the-badge\&logo=openai\&logoColor=white)

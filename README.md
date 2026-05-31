@@ -18,14 +18,15 @@ This repository contains professional documentation for selected projects I have
 
 ## Projects
 
-| Project                      | Type                                  | Tech Stack                                        | Live Demo                                                               | Documentation                                         |
-| ---------------------------- | ------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------- |
-| Portfolio Web Application    | Full-Stack Web App                    | React.js, Firebase                                | [Live Demo](https://profaile-19e99.web.app/)                            | [View Docs](./portfolio-web-app/README.md)            |
-| Restaurant Management System | Restaurant / Ordering Web App         | React.js, Bootstrap, Firebase                     | [Live Demo](https://projectm-f5389.web.app/)                            | [View Docs](./restaurant-management-system/README.md) |
-| Online Quiz Platform         | Educational Web App                   | React.js, Firebase, SCSS                          | [Live Demo](https://singup-12a91.web.app/)                              | [View Docs](./online-quiz-platform/README.md)         |
-| Time4Study Study Planner     | Productivity / Study Planning Web App | React.js, Vite, Firebase, Bootstrap, Tailwind CSS | Coming Soon                                                             | [View Docs](./time4study-study-planner/README.md)     |
-| StoreReact E-Commerce App    | E-Commerce Web App                    | React.js, Firebase, SCSS                          | [Live Demo](https://mohammadbzoor-9490e.firebaseapp.com/)               | [View Docs](./store-react-ecommerce/README.md)        |
-| TechNetwork                  | AI-Powered Recruitment Platform       | React.js, n8n, OpenAI, Pinecone, Cohere           | [AI Workflows](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer) | [View Docs](./technetwork/README.md)                  |
+| Project                        | Type                                  | Tech Stack                                        | Live Demo                                                               | Documentation                                           |
+| ------------------------------ | ------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------- |
+| Portfolio Web Application      | Full-Stack Web App                    | React.js, Firebase                                | [Live Demo](https://profaile-19e99.web.app/)                            | [View Docs](./portfolio-web-app/README.md)              |
+| Restaurant Management System   | Restaurant / Ordering Web App         | React.js, Bootstrap, Firebase                     | [Live Demo](https://projectm-f5389.web.app/)                            | [View Docs](./restaurant-management-system/README.md)   |
+| Online Quiz Platform           | Educational Web App                   | React.js, Firebase, SCSS                          | [Live Demo](https://singup-12a91.web.app/)                              | [View Docs](./online-quiz-platform/README.md)           |
+| Time4Study Study Planner       | Productivity / Study Planning Web App | React.js, Vite, Firebase, Bootstrap, Tailwind CSS | Coming Soon                                                             | [View Docs](./time4study-study-planner/README.md)       |
+| StoreReact E-Commerce App      | E-Commerce Web App                    | React.js, Firebase, SCSS                          | [Live Demo](https://mohammadbzoor-9490e.firebaseapp.com/)               | [View Docs](./store-react-ecommerce/README.md)          |
+| AIrRoute Smart Flight Platform | Hackathon / Smart Travel Platform     | React.js, Bootstrap, Gemini, Custom Dataset       | Coming Soon                                                             | [View Docs](./airroute-smart-flight-platform/README.md) |
+| TechNetwork                    | AI-Powered Recruitment Platform       | React.js, n8n, OpenAI, Pinecone, Cohere           | [AI Workflows](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer) | [View Docs](./technetwork/README.md)                    |
 
 ---
 
@@ -72,6 +73,9 @@ Portfolio-Projects-Docs/
 ├── store-react-ecommerce/
 │   └── README.md
 │
+├── airroute-smart-flight-platform/
+│   └── README.md
+│
 └── technetwork/
     ├── README.md
     ├── frontend-development.md
@@ -82,13 +86,15 @@ Portfolio-Projects-Docs/
 
 ## Featured Highlights
 
-| Area                        | Projects                                                                                              |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Full-Stack Web Applications | Portfolio Web Application, Restaurant Management System, StoreReact                                   |
-| Educational Platforms       | Online Quiz Platform, Time4Study Study Planner                                                        |
-| AI-Powered Recruitment      | TechNetwork                                                                                           |
-| Firebase-Based Projects     | Portfolio Web Application, Restaurant Management System, Online Quiz Platform, StoreReact, Time4Study |
-| React Frontend Work         | All listed projects                                                                                   |
+| Area                          | Projects                                                                                              |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Full-Stack Web Applications   | Portfolio Web Application, Restaurant Management System, StoreReact                                   |
+| Educational Platforms         | Online Quiz Platform, Time4Study Study Planner                                                        |
+| E-Commerce & Ordering Systems | StoreReact E-Commerce App, Restaurant Management System                                               |
+| Hackathon Projects            | AIrRoute Smart Flight Platform                                                                        |
+| AI-Powered Recruitment        | TechNetwork                                                                                           |
+| Firebase-Based Projects       | Portfolio Web Application, Restaurant Management System, Online Quiz Platform, StoreReact, Time4Study |
+| React Frontend Work           | All listed projects                                                                                   |
 
 ---
 
@@ -112,6 +118,7 @@ Some projects may have private source code, but their documentation is shared pu
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge\&logo=sass\&logoColor=white)
 ![n8n](https://img.shields.io/badge/n8n-Automation-EA4B71?style=for-the-badge)
 ![OpenAI](https://img.shields.io/badge/OpenAI-Integration-412991?style=for-the-badge\&logo=openai\&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-Chatbot%20Integration-4285F4?style=for-the-badge\&logo=google\&logoColor=white)
 
 </div>
 

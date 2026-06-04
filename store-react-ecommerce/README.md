@@ -1,6 +1,6 @@
 <div align="center">
 
-# StoreReact - E-Commerce Web Application
+# Store - E-Commerce Web Application
 
 ### A modern e-commerce web application built with React.js and Firebase
 

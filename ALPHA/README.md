@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Alpha — Backend & AI Automation
+# Alpha — Backend & AI Automation
 
 ### Building the backend logic behind a financial system where **one wrong number matters.**
 

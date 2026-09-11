@@ -447,13 +447,13 @@ And thanks to my Team Alpha teammates:
 
 **Smart AI-Powered Personal Finance Platform**
 
-[![GitHub](https://img.shields.io/badge/View%20Project-GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/mohammadbzoor/AlphaAPP)
+[![View Project](https://img.shields.io/badge/VIEW%20PROJECT-GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohammadbzoor/AlphaAPP)
 
 <br>
 
 ### 💡 Final Thought
 
-> **What if your finance app understood your data instead of just storing it?**
+> *What if your finance app understood your data instead of just storing it?*
 
 <br>
 

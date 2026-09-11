@@ -1,417 +1,338 @@
-<div align="center">
+# Alpha — Backend & AI Automation
 
-<img src="flutter/assets/images/logo.png" width="130" alt="Alpha App Logo" style="border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+> **One wrong number in an expense can affect an entire financial system.**
 
-# AlphaAPP (ألفا)
-### Smart AI-Powered Personal Finance & Budgeting Platform
+Alpha is a smart personal finance platform designed to help users understand, organize, and manage their financial life through financial cycles, savings allocation, financial goals, AI assistance, voice input, receipt OCR, and financial analysis.
 
-[![Flutter](https://img.shields.io/badge/Flutter-SDK_%E2%89%A53.0.0-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
-[![Node.js](https://img.shields.io/badge/Node.js-v18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
-[![Express](https://img.shields.io/badge/Express-5.2.1-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
-[![n8n](https://img.shields.io/badge/n8n-AI_Orchestration-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
-[![Vitest](https://img.shields.io/badge/Vitest-4.1.10-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#-license--authors)
+🔗 **Project Repository:** [https://github.com/mohammadbzoor/AlphaAPP](https://github.com/mohammadbzoor/AlphaAPP)
 
-<p align="center">
-  <b>A comprehensive, enterprise-grade financial management platform combining automated monthly cycles, atomic concurrency-safe ledgers, on-device OCR receipt scanning, and context-aware multi-modal AI voice & chat assistance.</b>
-</p>
+## 👨‍💻 My Contribution
 
-[Key Features](#-key-features) • [Architecture](#-system-architecture) • [App Pillars](#-core-app-pillars) • [Database & Migrations](#-database-architecture--migrations) • [API Specs](#-api-architecture--security) • [Getting Started](#-getting-started)
+My main contribution to Alpha was focused on the **Backend** and the **AI automation layer using n8n**.
 
-</div>
+I worked primarily with **Node.js, Express.js, MySQL, REST APIs, financial business logic, database transactions, concurrency control, n8n, and OpenAI models**.
 
----
+Working on Alpha taught me one of the most important engineering principles I have learned:
 
-## 📸 Core App Pillars
+> **Understand the logic before you implement the code.**
 
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="flutter/assets/images/bording1.png" width="160" alt="AI Financial Intelligence" /><br />
-      <b>AI Financial Brain</b><br />
-      <sub>Context-aware voice & chat assistance with n8n workflow pipelines.</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="flutter/assets/images/boarding2.png" width="160" alt="Budget & Cycle Balance" /><br />
-      <b>Smart Cycles & 50/30/20</b><br />
-      <sub>Automated monthly budgeting with Safe Daily Spending calculations.</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="flutter/assets/images/boarding3.png" width="160" alt="Goals & Security" /><br />
-      <b>Goal Ledgers & Safety</b><br />
-      <sub>Protected emergency funds, permanent audit trails, and zero double-counting.</sub>
-    </td>
-  </tr>
-</table>
-</div>
+In a financial system, the biggest challenge is not simply writing endpoints or connecting a database. The real challenge is understanding how every financial value is connected to the others.
+
+Before implementing the backend logic, I had to understand questions such as:
+
+* What exactly does a financial cycle represent?
+* Why does savings allocation need to happen in a specific order?
+* How is the emergency fund funded without affecting other commitments?
+* How do financial goals remain consistent when they are edited, reallocated, deferred, or executed?
+* What happens when income changes?
+* What happens when an expense exceeds the budget?
+* How can the system remain consistent when two operations happen at the same time?
+
+In a financial application:
+
+**One number changes → related calculations change → other financial values are affected → the entire financial state must remain consistent.**
+
+That is why I focused on understanding the relationships and business rules before translating them into code.
 
 ---
 
-## 🌟 Executive Summary
+## 🏗️ Backend Engineering
 
-**AlphaAPP** is a full-stack personal finance platform engineered to address the core challenges of personal wealth management, specifically tailored for the Arab and Jordanian markets (native **JOD** currency support and bidirectional Arabic RTL / English LTR design).
+The backend is built with **Node.js and Express.js** and follows a layered architecture that separates API handling from financial business logic and database operations.
 
-### Problem vs. Solution Matrix
+The general structure is:
 
-| The Real-World Challenge | The AlphaAPP Solution |
-|---|---|
-| **High Friction in Manual Logging** | Multi-modal entry: Speech-to-Text, Camera Receipt OCR (`Google ML Kit`), and fast manual tagging. |
-| **Budget Depletion Before Payday** | Dynamic **Safe Daily Spending (SDS)** metric continuously recalibrates discretionary allowances. |
-| **Unstructured Savings & Leakage** | Automated **Canonical Savings Allocation** guaranteeing zero double-counting across goals and emergency funds. |
-| **Lack of Actionable Insights** | Real-time **Financial Analysis Center** with interactive charts (`fl_chart`) and predictive health scoring. |
-| **Financial Disengagement** | Gamified challenges (daily, weekly, monthly), achievement points, badges, and a community leaderboard. |
+**Routes → Controllers → Services / Business Logic → Repositories / Data Access → MySQL**
 
----
+This separation helped keep the financial rules inside dedicated services instead of spreading them across API routes.
 
-## 🏗️ System Architecture
+### Technologies I Worked With
 
-AlphaAPP follows a decoupled, highly scalable **Client-Server Architecture** with strict layer boundaries.
-
-### High-Level Architectural Flow
-
-```mermaid
-graph TB
-    subgraph Client ["Frontend — Flutter Mobile Client"]
-        A[Flutter UI Layer - 30+ Screens] --> B[Provider State Layer - 20 Providers]
-        B --> C[Service Layer - HTTP & Native Hardware]
-        C --> D[Data Models & DTOs]
-    end
-
-    subgraph Server ["Backend — Node.js & Express 5 API"]
-        E[API Gateway & Router] --> F[Controllers Layer]
-        F --> G[Domain Services & Accounting Logic]
-        G --> H[Repositories & Concurrency Locks]
-        H --> I[Prepared MySQL Queries]
-    end
-
-    subgraph Database ["Persistence Layer"]
-        J[(MySQL 8 Database - InnoDB)]
-    end
-
-    subgraph AI_Engine ["External AI & Automation Services"]
-        K[n8n Automation Engine]
-        L[LLM Entity & Intent Extraction]
-        M[Google ML Kit On-Device OCR]
-    end
-
-    C <-- "Secure HTTPS / JWT" --> E
-    I --> J
-    G <--> K
-    K <--> L
-    A --> M
-```
-
-### AI Pipeline & Multi-Modal Processing
-
-```mermaid
-graph LR
-    subgraph Input_Sources ["User Inputs"]
-        A1[Voice Recording]
-        A2[Receipt Photo]
-        A3[Chat Message]
-    end
-
-    subgraph Processing ["Processing Gateway"]
-        B1[Whisper / Speech-to-Text]
-        B2[Google ML Kit OCR]
-        B3[Context Aggregator Engine]
-    end
-
-    subgraph Orchestration ["n8n & AI Services"]
-        C1[Structured Entity Parser]
-        C2[Financial Advisory Engine]
-    end
-
-    subgraph Storage ["Ledger Commit"]
-        D1[Candidate Draft Review]
-        D2[Permanent Financial Ledger]
-    end
-
-    A1 --> B1 --> C1 --> D1
-    A2 --> B2 --> C1 --> D1
-    A3 --> B3 --> C2
-    D1 --> D2
-```
+* Node.js
+* Express.js
+* MySQL / MySQL2
+* JWT Authentication
+* bcrypt
+* Helmet
+* CORS
+* express-rate-limit
+* express-validator
+* Axios
+* Vitest
 
 ---
 
-## ⚡ Key Features
+## 💰 Financial Business Logic
 
-### 1. 🤖 Context-Aware AI Assistant & Voice Engine
-- **Full Context Understanding**: The AI chatbot has access to current cycle health, active goals, recent expenses, and spending velocity.
-- **Voice-to-Expense**: Record a quick voice note (e.g., *"Paid 15 dinars for fuel with my Visa card"*), and the engine extracts `amount: 15`, `currency: JOD`, `category: transport`, and `paymentMethod: card`.
-- **Smart Rate Limiting**: Built-in protection limiting chat queries to 10 requests/minute to prevent API exhaustion.
+One of the most important parts of my backend work was implementing and protecting the financial rules behind Alpha.
 
-### 2. 🧾 Smart Receipt Scanner (OCR)
-- **On-Device Vision**: Extracts raw text from supermarket, restaurant, and pharmacy invoices using `google_mlkit_text_recognition`.
-- **Intelligent Normalizer**: Automatically infers tax, discounts, date, merchant name, and total amount.
-- **Human-in-the-Loop Review**: All parsed receipts open a **Draft Review Screen** before committing to the database.
+The system connects several financial concepts:
 
-### 3. 📊 Financial Cycles & The 50/30/20 Rule
-- **Dynamic Payday Alignment**: Instead of rigid calendar months, users define custom cycle start dates (e.g., the 25th of every month).
-- **Three-Bucket Separation**:
-  - **Needs**: Fixed commitments, rent, bills, groceries.
-  - **Wants**: Entertainment, shopping, personal hobbies.
-  - **Savings**: Emergency reserves and capital goals.
-- **Safe Daily Spending (SDS)**:
-  $$\text{Safe Daily Spending} = \frac{\text{Remaining Unallocated Discretionary Budget}}{\text{Remaining Days in Current Cycle}}$$
+**Income → Financial Cycle → Fixed Commitments → Available Savings → Emergency Fund / Goals / Unallocated Savings**
 
-### 4. 🎯 Financial Goals & Canonical Accounting
-- **Row-Level Locking (`SELECT ... FOR UPDATE`)**: Eliminates race conditions across multiple devices.
-- **Permanent Audit Trail**: Every contribution is an immutable ledger entry.
-- **Zero Double-Counting Invariant**:
-  $$\text{Unallocated Savings} = \text{Planned Savings} - \text{Emergency Fund} - \sum \text{Goal Allocations}$$
+Every part depends on the others.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Draft : Create Cycle & Set Targets
-    Draft --> Active : Start Cycle & Lock Savings Allocations
-    Active --> SettlementPreview : Cycle Period Ends
-    SettlementPreview --> Settlement : Verify Surpluses & Deficits
-    Settlement --> Closed : Close Cycle & Roll Over Remaining Funds
-    Closed --> [*]
-```
+A change in income, expenses, savings, or goals can affect the final financial state, so the backend has to preserve these relationships throughout every operation.
 
-### 5. 🏆 Gamification, Challenges & Social Motivation
-- **Savings Challenges**: Zero-spend days, dining-out detox, and sprint challenges.
-- **Points & Badges**: Earn achievements for staying within budget and logging consistently.
-- **Leaderboard**: Anonymized rankings encouraging peer accountability.
-- **Delightful Micro-Interactions**: Custom in-app rating prompt and birthday celebration dialogs.
+### Financial Cycles
 
----
+A financial cycle represents the period in which the user's income, expenses, commitments, and savings are tracked.
 
-## 🛠️ Technology Stack
+The cycle follows a defined lifecycle:
 
-### Mobile Client (Flutter)
-| Technology | Version | Role in Project |
-|---|---|---|
-| **Flutter SDK** | `>= 3.0.0` | High-performance multi-platform UI framework |
-| **Dart** | `>= 3.0.0` | Strongly-typed client language |
-| **Provider** | `^6.1.5` | Reactive state management and service dependency injection |
-| **Easy Localization** | `^3.0.8` | Complete bilingual i18n (Arabic RTL / English LTR) |
-| **Google ML Kit** | `^0.16.0` | On-device machine learning OCR for receipts |
-| **FL Chart** | `^1.2.0` | Smooth, interactive analytics and budget visualizers |
-| **Record & Just Audio** | `^7.1.1` / `^0.10.6` | High-fidelity voice note recording & audio playback |
-| **Google Fonts** | `^8.2.0` | Custom typography designed for the Mariam UI aesthetic |
+**Draft → Active → Settlement Preview → Settlement → Closed**
 
-### Backend API (Node.js)
-| Technology | Version | Role in Project |
-|---|---|---|
-| **Node.js** | `>= 18.x` | Asynchronous event-driven runtime |
-| **Express.js** | `5.2.1` | High-throughput web routing framework |
-| **MySQL 2** | `^3.23.1` | Relational persistence with ACID transactions |
-| **JSONWebToken** | `^9.0.3` | Cryptographically signed stateless bearer authentication |
-| **Bcrypt** | `^6.0.0` | Salted password hashing (cost factor 10) |
-| **Helmet** | `^8.3.0` | HTTP security headers (CSP, HSTS, XSS protection) |
-| **Express Rate Limit** | `^8.6.0` | IP-based request throttler |
-| **Vitest** | `^4.1.10` | High-speed unit & integration test runner |
+The backend is responsible for maintaining the correct state throughout this lifecycle and ensuring that balances and allocations remain consistent.
+
+### Savings Allocation
+
+Savings are not treated as independent numbers.
+
+The allocation process considers:
+
+1. Emergency Fund
+2. Financial Goal allocations
+3. Remaining unallocated savings
+
+The order and relationship between these values matter because changing one allocation can affect the remaining available savings.
+
+### Financial Goals & Ledger
+
+Financial goals are not treated as simple numeric fields.
+
+Each contribution is tracked through a financial ledger, allowing the system to maintain a permanent history of goal-related transactions.
+
+The backend also uses **database transactions and row-level locking** for concurrency-sensitive operations.
+
+For example:
+
+`SELECT ... FOR UPDATE`
+
+This helps protect financial operations when multiple requests attempt to modify related records at the same time.
+
+### Preventing Double Counting
+
+Another important challenge was ensuring that the same amount of money is not counted in multiple places.
+
+The backend therefore treats savings and allocations as a connected accounting system rather than a collection of unrelated totals.
 
 ---
 
-## 🗄️ Database Architecture & Migrations
+# 🤖 n8n & AI Automation
 
-The database schema is strictly managed via 26 sequential migration scripts, enforcing referential integrity and foreign key cascades.
+A major part of my backend contribution was building the AI automation layer using **n8n** and connecting the system with **OpenAI models**.
 
-<details>
-<summary><b>🔍 Click to expand the full 26-step database migration log</b></summary>
-<br />
+The goal was not simply to add an AI chatbot.
 
-| Migration # | Name | Core Functional Objective |
-|:---:|---|---|
-| **001–004** | `initial_schema_and_users` | Core user identity, baseline transactions, and profile schema |
-| **005** | `add_detected_tier_to_profiles` | Algorithmic financial tiering based on income brackets |
-| **006** | `convert_cents_to_jod` | Precision conversion from cents to Jordanian Dinar (JOD) |
-| **007** | `add_multi_input_support` | Tracking transaction origins (Manual, Voice AI, Receipt OCR) |
-| **008** | `add_payment_method` | Support for Cash, Credit/Debit Card, and Mobile Wallets |
-| **009** | `phase1_goal_ledger` | Permanent audit ledger for immutable goal contributions |
-| **010** | `post_deployment_goal_ledger_fks`| Strict foreign key enforcement across ledger tables |
-| **011** | `phase2_goal_planning` | Goal planning modes, preview APIs, and target calculations |
-| **012** | `phase2c_savings_allocations` | Savings distribution tables and automated allocation |
-| **013** | `add_personal_info_columns` | Extended profile demographics, occupation, and birthday |
-| **014** | `phase3a_financial_cycles` | Foundational table for user cycle lifecycle states |
-| **015** | `phase3a2_cycle_activity` | Event logging for transaction events per cycle |
-| **016** | `phase3a3_cycle_planning` | Budgeting schema for cycle bucket distribution |
-| **017** | `phase3b_settlement` | Schema for closing cycles and carrying forward balances |
-| **018** | `chat_ai_tables` | Persistent sessions and messages for AI chat interactions |
-| **019** | `chat_indexes` | Performance indices for rapid conversational history retrieval |
-| **020** | `reconcile_cycle_settlements` | Reconciliation constraints and data consistency fixes |
-| **021** | `add_system_managed_goal_identity` | System-managed goals identity (Emergency Fund as managed goal) |
-| **022** | `financial_analysis_history` | Historical archive for comprehensive financial health audits |
-| **023** | `add_notifications` | User notification delivery and read status management |
-| **024** | `challenges_system` | Gamification tables (challenges, user participations, points) |
-| **025** | `fix_challenge_constraints` | Refined challenge participation uniqueness constraints |
-| **026** | `canonical_savings_accounting` | Canonical savings accounting enforcing zero double-counting |
+The goal was to make AI understand the user's **actual financial context** and use that context to generate useful responses, insights, and actions.
 
-</details>
+The general workflow is:
+
+**Alpha Backend → Prepare Financial Context → n8n Workflow → OpenAI Model → Validate / Process Output → Final Response**
+
+Each AI capability is designed as an independent workflow so it can evolve without tightly coupling it to the rest of the system.
 
 ---
 
-## 🧭 State Management Architecture
+## 🔔 Smart Financial Notifications
 
-The Flutter client organizes state into **20 dedicated Providers**, ensuring high performance, zero memory leaks, and clear separation of concerns.
+Instead of relying only on static notification templates, Alpha can generate notifications based on the user's current financial situation.
 
-| Category | Provider Names | Responsibility |
-|---|---|---|
-| **Authentication & Profile** | `AuthProvider`, `OnboardingProvider`, `ProfileProvider`, `PersonalProvider` | User credentials, session persistence, onboarding flow, and user profile data. |
-| **Core Financial Engines** | `CycleProvider`, `FinancialProvider`, `FinancialSetupProvider`, `FinancialProfileProvider` | Active cycles, budget buckets, safe daily spending, and recurring commitments. |
-| **Operations & Transactions** | `ExpenseProvider`, `IncomeProvider`, `GoalProvider`, `ReceiptProvider` | CRUD operations for income/expenses, goal ledgers, and camera receipt processing. |
-| **Intelligence & Insights** | `ChatbotProvider`, `FinancialAnalysisProvider`, `NotificationProvider` | AI conversational state, health score calculation, and system notifications. |
-| **Gamification** | `ChallengeProvider`, `LeaderboardProvider`, `RewardProvider` | Savings challenges, point totals, and community standings. |
-| **App Settings** | `ThemeProvider`, `LanguageProvider`, `HomeProvider` | Light/Dark mode toggling, Arabic/English i18n, and dashboard view aggregations. |
+The workflow can be summarized as:
+
+**Financial Data → Context Preparation → n8n Workflow → AI Analysis → Notification Generation → Final Notification**
+
+This allows notifications to be based on the user's actual financial context instead of relying entirely on generic messages.
 
 ---
 
-## 🌐 API Architecture & Security
+## 💬 Context-Aware Financial Assistant
 
-### Key API Domain Endpoints
+The financial assistant is built around the user's real financial data.
 
-<details>
-<summary><b>🔍 Click to expand the API endpoints overview</b></summary>
-<br />
+The backend can prepare context such as:
 
-| Domain | Base Path | Methods | Description |
-|---|---|:---:|---|
-| **Auth** | `/api/v1/auth` | `POST` | `/login`, `/register`, `/verify-otp`, `/forgot-password`, `/reset-password` |
-| **Onboarding** | `/api/v1/onboarding` | `POST`, `GET` | Submit initial financial parameters, fetch recommended financial tier |
-| **Financial Operations**| `/api/v1/expenses`, `/incomes` | `GET`, `POST`, `DELETE`| Transaction logging with filters by date, bucket, category, and cycle |
-| **Cycles** | `/api/v1/financial-cycles` | `GET`, `POST`, `PUT` | Manage lifecycle (`/current`, `/start`, `/preview-settlement`, `/settle`) |
-| **Goals** | `/api/v1/goals` | `GET`, `POST`, `PATCH` | Set targets, view permanent contribution ledger, allocate funds |
-| **Receipt OCR** | `/api/v1/receipts` | `POST` | Upload multi-part invoice image, receive normalized transaction candidate |
-| **AI Voice** | `/api/v1/voice` | `POST` | Upload audio recording, receive parsed expense entities |
-| **AI Chat** | `/api/v1/chat` | `POST` | Send financial prompt with automatic context injection |
-| **Analytics** | `/api/v1/financial-analysis`| `GET`, `POST` | Generate real-time financial diagnosis report and view historical trends |
-| **Gamification** | `/api/v1/challenges` | `GET`, `POST` | Active challenges, submit completion proofs, claim rewards |
+* Current financial cycle
+* Income
+* Recent expenses
+* Active goals
+* Savings
+* Spending behavior
+* Financial status
 
-</details>
+The workflow then sends the relevant context to the AI model before generating the response.
 
-### Enterprise Security Safeguards
-- **Stateless JWT Authentication**: Tokens transmitted via standard `Authorization: Bearer <token>` headers with enforced expiration.
-- **SQL Injection Prevention**: All SQL queries utilize parameterized placeholders through MySQL2 prepared statements.
-- **Row-Level Concurrency Locks**: Goal ledgers and cycle settlements use `SELECT ... FOR UPDATE` within atomic MySQL transactions (`BEGIN ... COMMIT / ROLLBACK`).
-- **DDoS & Brute-Force Throttling**: IP-level rate limiters on sensitive auth routes and AI query endpoints.
+This means the assistant is designed to respond based on the user's actual financial state rather than behaving like a generic chatbot with no financial context.
 
 ---
 
-## 🏆 Competitive Advantages
+## 🔊 Voice Financial Analyst
 
-```plaintext
-┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│  Feature Comparison Matrix                                                               │
-├──────────────────────────────────────┬──────────────────────┬────────────────────────────┤
-│ Capability                           │ AlphaAPP              │ Traditional Finance Apps   │
-├──────────────────────────────────────┼──────────────────────┼────────────────────────────┤
-│ AI Smart Voice Logging               │ ✅ Automatic Parsing │ ❌ Not Supported           │
-│ On-Device Receipt Scanner (OCR)      │ ✅ Free & Embedded   │ ⚠️ Paid / Third-party only │
-│ Context-Aware AI Chatbot             │ ✅ Reads Live Ledger │ ⚠️ Generic Bot Only        │
-│ Dynamic Payday Financial Cycles      │ ✅ Full Flexibility  │ ❌ Rigid Calendar Month    │
-│ Atomic Goal Contributions & Ledgers  │ ✅ Row-Locked Ledger │ ⚠️ Simple Integer Field    │
-│ Zero Double-Counting Protection      │ ✅ Mathematical      │ ❌ Overlapping Totals      │
-│ Full Arabic Support (RTL & JOD)      │ ✅ Native First-class│ ⚠️ Rough Translation       │
-│ Gamified Savings & Leaderboard       │ ✅ Built-in Motives  │ ❌ Static Spreadsheets     │
-└──────────────────────────────────────┴──────────────────────┴────────────────────────────┘
-```
+One of the features I worked on that I consider especially interesting is the **Voice Financial Analyst**.
+
+Instead of only presenting financial analysis as text, the system can transform financial insights into an audio experience.
+
+The workflow is:
+
+**Financial Data → Financial Analysis → AI-Generated Insights → Text Processing → Audio Generation → Audio File → User**
+
+The idea is simple:
+
+> **Financial insights should not always have to be read — they can be listened to.**
 
 ---
 
-## 🚀 Getting Started
+## 🧾 Automatic Transaction Extraction
 
-### Prerequisites
-- **Node.js** `>= 18.x`
-- **MySQL** `>= 8.0`
-- **Flutter SDK** `>= 3.0.0`
-- **Git**
+Alpha supports multiple ways of converting unstructured input into structured financial data.
 
----
+### Voice Input
 
-### Step 1: Backend Setup
+**Voice Recording → Speech-to-Text → AI Entity Extraction → Structured Transaction → User Review → Database**
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/mohammadbzoor/AlphaAPP.git
-   cd AlphaAPP/backend
-   ```
+The extraction process can identify information such as:
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+* Amount
+* Currency
+* Category
+* Description
+* Payment Method
 
-3. **Configure Environment Variables**:
-   Create a `.env` file based on `.env.example`:
-   ```env
-   PORT=3000
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=your_mysql_password
-   DB_NAME=alpha
-   JWT_SECRET=your_super_secret_jwt_key
-   N8N_WEBHOOK_URL=https://your-n8n-instance/webhook/...
-   ```
+### Receipt Processing
 
-4. **Run Database Migrations**:
-   ```bash
-   node migrate.js
-   ```
+**Receipt Image → OCR → Extracted Text → AI / Data Normalization → Transaction Candidate → User Review → Database**
 
-5. **Start Development Server**:
-   ```bash
-   npm run dev
-   ```
-   *The API will be live on `http://localhost:3000`.*
+The review step is important because automatically extracted financial information should be verified before becoming part of the permanent financial record.
 
 ---
 
-### Step 2: Mobile Client Setup (Flutter)
+## 🧩 Modular AI Workflows
 
-1. **Navigate to the Flutter directory**:
-   ```bash
-   cd ../flutter
-   ```
+Each AI feature follows a modular workflow structure:
 
-2. **Install Flutter packages**:
-   ```bash
-   flutter pub get
-   ```
+**1. Prepare Context
+2. Invoke AI Model
+3. Validate Output
+4. Build Final Response**
 
-3. **Configure the Server Endpoint**:
-   Check `lib/config/api_config.dart` to toggle between:
-   - `AppEnvironment.local` (local IP / Android emulator `http://10.0.2.2:3000`)
-   - `AppEnvironment.production` (Cloud Render deployment)
+This modular approach allows individual features to evolve independently.
 
-4. **Run the Application**:
-   ```bash
-   flutter run
-   ```
+For example, the **Chat**, **Notifications**, **Voice Analysis**, and **Transaction Extraction** workflows can each be improved without tightly coupling their implementation to the others.
+
+This became especially useful when working with AI because prompts, models, validation rules, and response structures can evolve independently.
 
 ---
 
-### Step 3: Running Automated Tests
+# 🔐 Backend Security & Reliability
 
-Run the backend test suite verifying concurrency safety, mathematical invariants, and endpoints:
-```bash
-cd backend
-npm run test
-```
+Because Alpha handles financial information, reliability and security were important parts of the backend.
+
+The backend includes:
+
+* JWT authentication
+* Password hashing with bcrypt
+* Helmet security headers
+* Request validation
+* CORS configuration
+* Rate limiting
+* Parameterized database queries
+* Database transactions
+* Row-level locking for concurrency-sensitive operations
+
+The goal was not only to make the API functional, but to make financial operations behave predictably under real application conditions.
 
 ---
 
-## 🗺️ Roadmap & Upcoming Milestones
+# 🧪 Testing
 
-- [ ] **Phase 2B Completion**: Real-time capital expense execution, target reallocations, and asset liquidation.
-- [ ] **Push Notifications**: Automated mobile reminders for safe daily spending thresholds via Firebase Cloud Messaging (FCM).
-- [ ] **Exportable PDF Reports**: Automated monthly financial summaries for accounting and budgeting archives.
-- [ ] **Open Banking Synchronization**: Read-only integration with regional banks and digital payment providers.
+The backend includes automated tests using **Vitest**.
+
+Testing focuses on important areas such as:
+
+* Financial business logic
+* API behavior
+* Financial calculations
+* Data consistency
+* Concurrency-sensitive operations
+* Financial invariants
+
+In a financial system, testing is not only about checking whether an endpoint returns a response. It is also about verifying that the underlying financial rules remain correct.
 
 ---
 
-## 📄 License & Authors
+# 🧠 What This Project Taught Me
 
-Developed and maintained by **Mohammad Al Bzoor** and contributors.  
-All rights reserved © 2026.
+The biggest lesson I took from Alpha was not a specific framework or library.
 
-<div align="center">
-  <sub>Built with precision for financial empowerment.</sub>
-</div>
+It was a way of thinking.
+
+Instead of starting with:
+
+> **"I need to create an endpoint."**
+
+I learned to start with:
+
+> **"What should happen financially?"**
+
+Then ask:
+
+* What depends on this value?
+* What changes when it changes?
+* What happens if the operation fails?
+* What happens if two operations happen simultaneously?
+* How do I guarantee that the final state remains correct?
+
+Only after answering these questions does the implementation become clear.
+
+> **Understand the system first. Model the relationships. Define the rules. Then write the code.**
+
+This became one of the most valuable habits I took from the project, and it changed the way I approach backend development beyond financial software.
+
+---
+
+# 🏆 Hackathon
+
+Alpha was developed as part of our participation as **Team Alpha**, representing **Al al-Bayt University** at the **FinTech Rally Hackathon 2026**, organized by **Jordan Payments & Clearing Company (JoPACC)** and **JOIN Fincubator**.
+
+Although the hackathon is over, Alpha remains one of the most important projects I have worked on.
+
+It taught me how much difference domain understanding can make when building systems where correctness matters.
+
+---
+
+# 🙏 Acknowledgments
+
+Special thanks to **Dr. Sufian HRAZE** for his guidance in understanding the financial logic and calculation processes behind the system.
+
+And thanks to my Team Alpha teammates:
+
+* **Mariam Abusawwa**
+* **Rama Alodat**
+* **Mohmmad Aba Zaid**
+* **Tabark Abed**
+
+---
+
+# 🔗 Project Repository
+
+## AlphaAPP
+
+**Smart AI-Powered Personal Finance Platform**
+
+[https://github.com/mohammadbzoor/AlphaAPP](https://github.com/mohammadbzoor/AlphaAPP)
+
+---
+
+# 💡 Final Thought
+
+> **What if your finance app understood your data instead of just storing it?**
+
+That question became the starting point for a large part of my backend work on Alpha.
+
+My role was about turning that idea into:
+
+**Financial Logic + Reliable Backend APIs + Consistent Database Operations + Concurrency Protection + AI Context Engineering + n8n Automation**
+
+And the biggest lesson I took from the project is simple:
+
+> **Understand before implementing.**

@@ -39,57 +39,74 @@
 
 ## 🚀 Overview
 
-A robust, scalable RESTful API for a full E-Commerce platform. This backend handles everything from user authentication and product management to shopping carts, orders, and real-time Stripe payment processing via webhooks.
+A robust and scalable **RESTful API** for a full-featured E-Commerce platform.
 
-Built following best practices for **security**, **performance**, and **maintainability** — production-ready out of the box.
+This backend handles the complete shopping lifecycle — from **authentication and product management** to **shopping carts, orders, coupons, and Stripe payments via webhooks**.
+
+Built with a strong focus on:
+
+**Security • Performance • Scalability • Maintainability**
 
 ---
 
 ## ✨ Features
 
 ### 🔐 Authentication & Authorization
-- JWT-based authentication with expiry control
-- Role-based access control: `user`, `manager`, `admin`
-- Secure password hashing with **bcryptjs** (12 salt rounds)
-- Forgot password flow with **6-digit OTP** sent via email
-- OTP verification & secure password reset
-- Token invalidation on password change
+
+- **JWT Authentication** with token expiry control
+- **Role-Based Access Control** with `user`, `manager`, and `admin` roles
+- Secure password hashing using **bcryptjs** with 12 salt rounds
+- **Forgot Password** flow with a 6-digit email OTP
+- OTP verification and secure password reset
+- Token invalidation after password changes
 
 ### 🛍️ Product Management
-- Full CRUD for Products, Categories, Subcategories, and Brands
-- Image upload with on-the-fly **image processing & resizing** via Sharp
-- Slug auto-generation for SEO-friendly URLs
-- Product reviews & dynamic **ratings average** calculation
+
+- Full **CRUD** for Products, Categories, Subcategories, and Brands
+- Image upload with on-the-fly **processing and resizing** using Sharp
+- Automatic **slug generation** for SEO-friendly URLs
+- Product reviews with dynamic **average rating calculation**
 
 ### 🛒 Shopping & Orders
-- Shopping cart management (add, update, remove items)
-- Coupon/discount code system
-- Order creation (cash on delivery & online payment)
+
+- Complete shopping cart management
+- Add, update, and remove cart items
+- **Coupon & discount system**
+- Order creation with:
+  - Cash on Delivery
+  - Online payment
 - **Stripe payment integration** with webhook support
-- Order status management (admin/manager controls)
+- Order status management for administrators and managers
 
 ### 👤 User Profile
-- Wishlist management (add/remove products)
+
+- Wishlist management
 - Multiple saved delivery addresses
 - Profile image upload
-- Soft delete for user accounts (`active` flag)
+- Soft account deletion using an `active` flag
 
 ### ⚙️ Advanced API Features
-- **Filtering** — filter by any field with `[gt]`, `[gte]`, `[lt]`, `[lte]` operators
-- **Sorting** — multi-field sorting support
-- **Field Limiting** — select only needed fields to reduce payload
-- **Full-Text Search** — keyword search across products, categories, etc.
-- **Pagination** — with `currentPage`, `numberOfPages`, `next`, and `prev` metadata
+
+- **Filtering** with comparison operators:
+  `[gt]`, `[gte]`, `[lt]`, `[lte]`
+- **Multi-field Sorting**
+- **Field Limiting** to reduce unnecessary response data
+- **Full-Text Search** across products, categories, and more
+- **Pagination** with:
+  - `currentPage`
+  - `numberOfPages`
+  - `next`
+  - `prev`
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
 | Category | Technology |
 |---|---|
 | **Runtime** | Node.js v24.14.0 |
 | **Framework** | Express.js v5 |
-| **Database** | MongoDB Atlas via Mongoose v9 |
+| **Database** | MongoDB Atlas + Mongoose v9 |
 | **Authentication** | JSON Web Tokens (JWT) |
 | **Password Hashing** | bcryptjs |
 | **Payment Gateway** | Stripe v22 |
@@ -97,11 +114,11 @@ Built following best practices for **security**, **performance**, and **maintain
 | **Image Processing** | Sharp |
 | **File Uploads** | Multer |
 | **Input Validation** | express-validator |
-| **Security** | Helmet, HPP, CORS, Rate Limiting, XSS sanitization, NoSQL injection protection |
+| **Security** | Helmet, HPP, CORS, Rate Limiting, XSS Sanitization, NoSQL Injection Protection |
 | **Logging** | Morgan |
 | **Compression** | compression |
-| **Linting** | ESLint (Airbnb config) + Prettier |
-| **Dev Server** | Nodemon |
+| **Linting** | ESLint (Airbnb) + Prettier |
+| **Development Server** | Nodemon |
 
 ---
 

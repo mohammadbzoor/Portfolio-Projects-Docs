@@ -28,7 +28,9 @@ This repository contains professional documentation for selected projects I have
 | AIrRoute Smart Flight Platform | Hackathon / Smart Travel Platform     | React.js, Bootstrap, Gemini, Custom Dataset       | Coming Soon                                                             | [View Docs](./airroute-smart-flight-platform/README.md) |
 | TBR3 React Frontend            | Charity / Donation Platform Frontend  | React.js, Tailwind CSS, React Router              | Coming Soon                                                             | [View Docs](./tbr3-react-frontend/README.md)            |
 | TechNetwork                    | AI-Powered Recruitment Platform       | React.js, n8n, OpenAI, Pinecone, Cohere           | [AI Workflows](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer) | [View Docs](./technetwork/README.md)                    |
-| Tesla Coffee                   | Cafe / Restaurant POS & Management SaaS | React.js, Firebase, Framer Motion               | [Repository](https://github.com/mohammadbzoor/TeslaCoffee)              | [View Docs](./tesla-coffee-management-system/README.md) |
+| Tesla Coffee                   | Cafe / Restaurant POS & Management SaaS | React.js, Firebase, Framer Motion               | [Repository](https://github.com/mohammadbzoor/TeslaCoffee)              | [View Docs](./Tesla%20coffee%20management%20system/README.md) |
+| Alpha                           | Fintech Backend & AI Automation       | Node.js, Express, MySQL, n8n, OpenAI              | [Repository](https://github.com/mohammadbzoor/AlphaAPP)                 | [View Docs](./ALPHA/README.md)                          |
+| E-Commerce REST API             | E-Commerce Backend API                | Node.js, Express, MongoDB, JWT, Stripe            | [Repository](https://github.com/mohammadbzoor/shopBackend)              | [View Docs](./ecommerce-backend-api/README.md)          |
 
 ---
 
@@ -86,7 +88,13 @@ Portfolio-Projects-Docs/
 │   ├── frontend-development.md
 │   └── ai-pipelines.md
 │
-└── tesla-coffee-management-system/
+├── ALPHA/
+│   └── README.md
+│
+├── ecommerce-backend-api/
+│   └── README.md
+│
+└── Tesla coffee management system/
     └── README.md
 ```
 
@@ -98,8 +106,10 @@ Portfolio-Projects-Docs/
 | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Full-Stack Web Applications   | Portfolio Web Application, Restaurant Management System, StoreReact, Tesla Coffee                     |
 | Educational Platforms         | Online Quiz Platform, Time4Study Study Planner                                                        |
-| E-Commerce & Ordering Systems | StoreReact E-Commerce App, Restaurant Management System, Tesla Coffee                                 |
+| E-Commerce & Ordering Systems | StoreReact E-Commerce App, Restaurant Management System, Tesla Coffee, E-Commerce REST API             |
 | POS / SaaS Operations Tools   | Tesla Coffee                                                                                           |
+| Fintech / Backend Systems     | Alpha                                                                                                  |
+| Backend & API Development     | Alpha, E-Commerce REST API                                                                             |
 | Charity / Donation Platforms  | TBR3 React Frontend                                                                                   |
 | Hackathon Projects            | AIrRoute Smart Flight Platform                                                                        |
 | AI-Powered Recruitment        | TechNetwork                                                                                           |

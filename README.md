@@ -49,7 +49,7 @@ Projects are grouped below from most to least technically advanced, based on arc
 | Project | Type | Tech Stack | Live Demo | Documentation |
 |---|---|---|---|---|
 | **TBR3 React Frontend** | Charity / Donation Platform Frontend | React.js, Tailwind CSS, React Router | Coming Soon | [View Docs](./tbr3-react-frontend/README.md) |
-| **Portfolio Web Application** | Full-Stack Web App | React.js, Firebase | [Live Demo](https://profaile-19e99.web.app/) | [View Docs](./portfolio-web-app/README.md) |
+| **Portfolio Web Application** | Personal Portfolio / Frontend Web App | React.js, Firebase | [Live Demo](https://profaile-19e99.web.app/) | [View Docs](./portfolio-web-app/README.md) |
 
 ---
 
@@ -129,7 +129,8 @@ Portfolio-Projects-Docs/
 | Hackathon Projects | AIrRoute Smart Flight Platform |
 | POS / SaaS Operations Tools | Tesla Coffee |
 | E-Commerce & Ordering Systems | StoreReact, Restaurant Management System, Tesla Coffee, E-Commerce REST API |
-| Full-Stack Web Applications | Portfolio Web Application, Restaurant Management System, StoreReact, Tesla Coffee |
+| Full-Stack Web Applications | Restaurant Management System, StoreReact, Tesla Coffee |
+| Personal Portfolio / Frontend | Portfolio Web Application |
 | Educational Platforms | Online Quiz Platform, Time4Study Study Planner |
 | Charity / Donation Platforms | TBR3 React Frontend |
 | Firebase-Based Projects | Portfolio Web Application, Restaurant Management System, Online Quiz Platform, StoreReact, Time4Study, Tesla Coffee |

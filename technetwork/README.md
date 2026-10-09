@@ -13,6 +13,7 @@ AI-based CV analysis, ATS scoring, and semantic candidate search.
 ![n8n](https://img.shields.io/badge/n8n-AI%20Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-LLM-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Pinecone](https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge)
+![Cohere](https://img.shields.io/badge/Cohere-Reranking-39594D?style=for-the-badge)
 
 [🌐 Live Platform](https://technetworkfront.laravel.cloud/) •
 [🤖 n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks) •
@@ -28,7 +29,7 @@ TechNetwork is a recruitment platform built for the tech industry. It addresses 
 
 Developers build structured portfolios with their skills, projects, experience, certificates, and CV. Companies publish jobs and search for candidates using natural language. An AI layer analyzes CVs, calculates ATS scores, and matches candidates by meaning instead of exact keywords.
 
-The project was built as a graduation project at Al al-Bayt University, Faculty of Information Technology, Computer Science Department, under the supervision of Dr. Suhair Bani Ata.
+The project was built by a team of two as a graduation project at Al al-Bayt University, Faculty of Information Technology, Computer Science Department, under the supervision of Dr. Suhair Bani Ata.
 
 ---
 
@@ -58,7 +59,7 @@ A developer uploads a CV (PDF). The workflow validates the file, extracts and cl
 When a profile is created or updated, the workflow fetches the candidate profile, normalizes the text, splits it into chunks, and generates OpenAI embeddings. The vectors are stored in Pinecone.
 
 ### Pipeline C: Recruitment Assistant
-A company submits a natural-language query, for example "backend developer experienced with Laravel". The workflow generates a query embedding, searches the candidate vectors in Pinecone, reranks the results with AI, and returns ranked candidate matches.
+A company submits a natural-language query, for example "backend developer experienced with Laravel". The workflow generates a query embedding, searches the candidate vectors in Pinecone, reranks the results with Cohere, and returns ranked candidate matches.
 
 ---
 
@@ -75,7 +76,7 @@ React Frontend ──► Laravel REST API ──► MySQL
    CV Analysis      ATS Scoring     Embeddings ──► Pinecone
      (OpenAI)        (OpenAI)                          │
                                                        ▼
-                                      Semantic Search ──► Rerank ──► Ranked Matches
+                                   Semantic Search ──► Rerank (Cohere) ──► Ranked Matches
 ```
 
 ---
@@ -98,8 +99,15 @@ React Frontend ──► Laravel REST API ──► MySQL
 | Frontend | React.js, JavaScript, Tailwind CSS, Axios |
 | Backend | Laravel (PHP), MySQL, RESTful APIs, Token-based Auth, RBAC |
 | AI & Automation | n8n, OpenAI (chat models and embeddings), Webhooks |
-| Retrieval | Pinecone, Vector Embeddings, Semantic Search, AI Reranking |
+| Retrieval | Pinecone, Vector Embeddings, Semantic Search, Cohere Reranking |
 | Tools | Postman, TablePlus, phpMyAdmin, Git |
+
+---
+
+## Detailed Documentation
+
+- [AI Pipelines](ai-pipelines.md): CV analysis, candidate indexing, and semantic search workflows
+- [Frontend Development](frontend-development.md): React frontend and API integration
 
 ---
 
@@ -107,7 +115,7 @@ React Frontend ──► Laravel REST API ──► MySQL
 
 | Name | Role |
 |---|---|
-| **Mohammed AL Bzoor** | Frontend (React), API integration, AI pipelines (n8n, OpenAI, Pinecone) |
+| **Mohammed AL Bzoor** | Frontend (React), API integration, AI pipelines (n8n, OpenAI, Pinecone, Cohere) |
 | **Abdalrhman Hamed** | Backend, system architecture, frontend |
 
 ---

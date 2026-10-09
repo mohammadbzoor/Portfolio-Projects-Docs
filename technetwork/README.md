@@ -4,11 +4,12 @@
 
 ### AI-Powered Recruitment Platform for the Tech Industry
 
-Connects developers and companies through structured portfolios, a job board,
+Connects developers and companies through verifiable portfolios, a job board,
 AI-based CV analysis, ATS scoring, and semantic candidate search.
 
 ![Live Demo](https://img.shields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![React](https://img.shields.io/badge/React.js-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Laravel](https://img.shields.io/badge/Laravel-Backend-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![n8n](https://img.shields.io/badge/n8n-AI%20Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-LLM-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Pinecone](https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge)
@@ -23,33 +24,11 @@ AI-based CV analysis, ATS scoring, and semantic candidate search.
 
 ## Overview
 
-TechNetwork is a graduation project (Computer Science, Al al-Bayt University) built by a team of two.
+TechNetwork is a recruitment platform built for the tech industry. It addresses two common problems in tech hiring: developer information scattered across many places, and keyword-based search that misses good candidates.
 
-Developers create profiles with skills, projects, experience, and certificates. Companies publish jobs and search for candidates. The AI layer analyzes uploaded CVs, scores them for ATS compatibility, and lets recruiters search candidates by **meaning** instead of exact keywords.
+Developers build structured portfolios with their skills, projects, experience, certificates, and CV. Companies publish jobs and search for candidates using natural language. An AI layer analyzes CVs, calculates ATS scores, and matches candidates by meaning instead of exact keywords.
 
-> **My role:** React frontend, API integration, and the full AI/automation layer (n8n, OpenAI, Pinecone).
-> **Teammate's role:** Laravel backend, database, and system architecture.
-
----
-
-## Screenshots
-
-<!-- Add 4-6 images to a /screenshots folder, then uncomment -->
-<!--
-| Developer Profile | ATS Score Result |
-|---|---|
-| ![](screenshots/profile.png) | ![](screenshots/ats.png) |
-
-| Semantic Search | Company Dashboard |
-|---|---|
-| ![](screenshots/search.png) | ![](screenshots/company.png) |
--->
-
-**Demo access:**
-- Developer account: `[email]` / `[password]`
-- Company account: `[email]` / `[password]`
-
-> Or watch a short walkthrough: [Demo video](LINK)
+The project was built as a graduation project at Al al-Bayt University, Faculty of Information Technology, Computer Science Department, under the supervision of Dr. Suhair Bani Ata.
 
 ---
 
@@ -57,31 +36,29 @@ Developers create profiles with skills, projects, experience, and certificates. 
 
 | Feature | Description |
 |---|---|
-| Developer portfolios | Skills, projects, experience, education, certificates |
-| Company profiles & job board | Companies post jobs, developers browse and apply |
-| AI CV analysis | Extracts and structures CV data into a consistent format |
-| ATS scoring | Scores a CV and returns feedback and improvement tips |
+| Developer portfolios | Skills, projects, experience, education, and certificates in one profile |
+| Company profiles | Companies manage their presence and interact with developers |
+| Job board | Companies publish jobs, developers browse and apply |
+| AI CV analysis | Extracts and structures CV data from uploaded PDFs |
+| ATS scoring | Returns a score with strengths, weaknesses, and improvement suggestions |
 | Semantic search | Finds candidates by meaning using vector embeddings |
-| Candidate matching | Ranks candidates against a job description |
+| AI recruitment assistant | Recruiters describe the candidate they need in plain language and get ranked matches |
+| Role-based access | Four user scopes: Admin, Company, Developer, Guest |
 
 ---
 
-## My Contribution
+## How It Works
 
-### Frontend (React.js)
-- Built [X] pages, including developer and company flows
-- Created reusable components and responsive layouts with Tailwind CSS
-- Integrated the Laravel REST API using Axios
-- Managed async states: loading, errors, and long-running AI results
-- [Add one specific challenge you solved, e.g. showing ATS results without blocking the UI]
+The Laravel backend hands heavy AI tasks to **n8n**, which runs them as separate workflows. This keeps the main server responsive during PDF parsing and LLM calls.
 
-### AI & Automation (n8n)
-- **CV processing:** PDF text extraction, then structured JSON output through OpenAI
-- **ATS scoring:** Prompt-engineered scoring with structured output and improvement suggestions
-- **Candidate indexing:** Embeddings generated with `[embedding model]` and stored in Pinecone
-- **Semantic search:** Vector query with top-k = `[X]`, then reranking with Cohere `[keep only if used]`
-- **Matching:** GPT-generated explanation for why each candidate matches
-- **Async design:** Webhook-triggered workflows so the client is never blocked
+### Pipeline A: CV Analysis
+A developer uploads a CV (PDF). The workflow validates the file, extracts and cleans the text, generates a hash for the CV, and sends the prepared payload to OpenAI. The response is returned as structured JSON containing an ATS score, strengths, weaknesses, and improvement suggestions.
+
+### Pipeline B: Candidate Indexing
+When a profile is created or updated, the workflow fetches the candidate profile, normalizes the text, splits it into chunks, and generates OpenAI embeddings. The vectors are stored in Pinecone.
+
+### Pipeline C: Recruitment Assistant
+A company submits a natural-language query, for example "backend developer experienced with Laravel". The workflow generates a query embedding, searches the candidate vectors in Pinecone, reranks the results with AI, and returns ranked candidate matches.
 
 ---
 
@@ -98,8 +75,19 @@ React Frontend ──► Laravel REST API ──► MySQL
    CV Analysis      ATS Scoring     Embeddings ──► Pinecone
      (OpenAI)        (OpenAI)                          │
                                                        ▼
-                                      Semantic Search ──► Rerank ──► Match Report
+                                      Semantic Search ──► Rerank ──► Ranked Matches
 ```
+
+---
+
+## Backend Design
+
+- **Dynamic RBAC:** permissions are stored in the database and mapped at the module, entity, and action level, so an admin can assign privileges (create, edit, view, and more) from the Admin Dashboard instead of changing code.
+- **Normalized relational schema** split into four domains:
+  - **Users & Security:** users, roles, role rights, modules, actions
+  - **Developers:** profiles, experiences, projects, skills, certificates
+  - **Companies & Jobs:** companies, jobs, job postings, applications
+  - **AI & Analytics:** CVs, CV analyses, candidate profiles, chat messages
 
 ---
 
@@ -108,21 +96,10 @@ React Frontend ──► Laravel REST API ──► MySQL
 | Layer | Technologies |
 |---|---|
 | Frontend | React.js, JavaScript, Tailwind CSS, Axios |
-| Backend (teammate) | Laravel, MySQL, REST API, RBAC |
-| AI & Automation | n8n, OpenAI, Webhooks |
-| Retrieval | Pinecone, Vector Embeddings, Cohere Reranker `[if used]` |
-
----
-
-## Results
-
-<!-- Fill with real numbers from your own testing, or delete this section -->
-
-| Metric | Value |
-|---|---|
-| CVs tested | [X] |
-| Average processing time per CV | [X] seconds |
-| Search quality vs keyword search | [describe how you compared] |
+| Backend | Laravel (PHP), MySQL, RESTful APIs, Token-based Auth, RBAC |
+| AI & Automation | n8n, OpenAI (chat models and embeddings), Webhooks |
+| Retrieval | Pinecone, Vector Embeddings, Semantic Search, AI Reranking |
+| Tools | Postman, TablePlus, phpMyAdmin, Git |
 
 ---
 
@@ -130,21 +107,22 @@ React Frontend ──► Laravel REST API ──► MySQL
 
 | Name | Role |
 |---|---|
-| **Mohammed AL Bzoor** | Frontend, API integration, AI pipelines |
+| **Mohammed AL Bzoor** | Frontend (React), API integration, AI pipelines (n8n, OpenAI, Pinecone) |
 | **Abdalrhman Hamed** | Backend, system architecture, frontend |
 
 ---
 
 ## Repository Status
 
-This repository documents my contribution to TechNetwork. The core application source code is private due to academic project requirements. The AI workflows are public for technical review:
-👉 [n8n workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
+The core application source code is kept private because of academic project requirements. This repository is a project overview.
+
+The AI workflows behind the platform are public:
+👉 [TechNetwork n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 
 ---
 
 ## Author
 
 **Mohammed AL Bzoor** — Full Stack Developer (React, Node.js, AI Automation)
-Computer Science, Al al-Bayt University, [graduation year]
 
 [GitHub](https://github.com/mohammadbzoor) • [LinkedIn](https://www.linkedin.com/in/mohammadbzoor) • [Portfolio](https://profaile-19e99.web.app/)

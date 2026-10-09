@@ -1,29 +1,17 @@
 <div align="center">
 
-# TechNetwork - AI Pipelines
+# TechNetwork: AI Pipelines
 
-### Candidate-side resume analysis and recruiter-side semantic matching workflows
-
-This document explains the AI layer I worked on in **TechNetwork**, divided into two main parts:
-
-**AI Resume Analyzer** for developers and **Semantic Recruitment Engine** for companies and recruiters.
-
-<br />
+### Resume analysis for developers and semantic candidate matching for recruiters
 
 ![OpenAI](https://img.shields.io/badge/OpenAI-AI-black)
 ![n8n](https://img.shields.io/badge/n8n-Automation-orange)
-![ATS](https://img.shields.io/badge/ATS-Resume%20Analysis-blue)
 ![Pinecone](https://img.shields.io/badge/Pinecone-Vector%20Database-blue)
 ![Cohere](https://img.shields.io/badge/Cohere-Reranking-green)
-![Vector Search](https://img.shields.io/badge/AI-Semantic%20Search-purple)
-![PDF](https://img.shields.io/badge/PDF-Processing-red)
-![JSON](https://img.shields.io/badge/API-JSON-green)
 
-<br />
-
-[![Back to TechNetwork Overview](https://img.shields.io/badge/Back%20to-TechNetwork%20Overview-purple?style=for-the-badge)](./README.md)
+[![Back to Overview](https://img.shields.io/badge/Back%20to-Overview-purple?style=for-the-badge)](./README.md)
 [![Frontend Docs](https://img.shields.io/badge/View-Frontend%20Docs-blue?style=for-the-badge)](./frontend-development.md)
-[![AI Repository](https://img.shields.io/badge/View-AI%20Workflow%20Repository-brightgreen?style=for-the-badge)](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer)
+[![n8n Workflows](https://img.shields.io/badge/View-n8n%20Workflows-brightgreen?style=for-the-badge)](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 
 </div>
 
@@ -31,35 +19,18 @@ This document explains the AI layer I worked on in **TechNetwork**, divided into
 
 ## Overview
 
-The AI layer in **TechNetwork** was designed to improve both sides of the recruitment process:
+The AI layer of TechNetwork has two parts, one for each side of the platform. Both are built as n8n workflows triggered by webhooks from the Laravel backend, so heavy tasks like PDF parsing and LLM calls do not block the main server.
 
-| Side           | Purpose                                                                                                                       |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Candidate Side | Help developers analyze and improve their resumes through ATS scoring and structured AI feedback                              |
-| Recruiter Side | Help companies discover relevant candidates using semantic search, vector embeddings, reranking, and natural language queries |
-
-My contribution focused on designing and supporting AI workflows using **n8n**, **OpenAI**, **webhooks**, structured JSON outputs, and vector-based recruitment concepts.
+| Side | Purpose |
+|---|---|
+| Developers | Upload a CV and receive an ATS score with structured feedback |
+| Recruiters | Search candidates in natural language and get ranked matches |
 
 ---
 
-# 1. Candidate-Side AI Resume Analyzer
+# 1. Resume Analyzer (Developer Side)
 
-## Purpose
-
-The **AI Resume Analyzer** helps developers upload their CVs and receive structured resume feedback.
-
-It focuses on:
-
-* ATS compatibility analysis
-* Resume quality evaluation
-* Strengths and weaknesses detection
-* Missing keyword identification
-* Actionable improvement recommendations
-* Structured JSON output for platform integration
-
----
-
-## ATS Resume Analysis Architecture
+Developers upload a CV as a PDF. The workflow extracts the text, analyzes it with OpenAI, and returns a structured JSON result that the platform stores and displays.
 
 <div align="center">
 
@@ -67,50 +38,37 @@ It focuses on:
 
 </div>
 
-This architecture represents the candidate-side AI ecosystem responsible for resume upload processing, PDF extraction, ATS scoring, resume optimization, structured AI evaluation, and intelligent CV assistance workflows.
+## What It Produces
 
----
+- ATS score and level
+- Strengths and weaknesses
+- Missing keywords
+- Actionable improvement recommendations
+- A short structured summary of the CV
 
-## Candidate-Side Features
-
-| Feature           | Description                                                     |
-| ----------------- | --------------------------------------------------------------- |
-| ATS Scoring       | Generates a resume score based on compatibility and structure   |
-| Resume Evaluation | Detects strengths, weaknesses, and improvement areas            |
-| Missing Keywords  | Identifies important missing technical or professional keywords |
-| PDF Processing    | Validates and extracts resume text from uploaded PDF files      |
-| Resume Cleaning   | Cleans and normalizes extracted resume text                     |
-| CV Hashing        | Generates a hash to support resume tracking and processing      |
-| Structured JSON   | Returns AI output in a backend-ready JSON format                |
-| CV Assistant      | Supports resume-focused Q&A and improvement suggestions         |
-
----
-
-## Candidate-Side Workflow
+## Workflow
 
 ```text
-Candidate uploads CV
+Developer uploads CV (PDF)
         ↓
 PDF validation
         ↓
-PDF text extraction
+Text extraction
         ↓
-Resume cleaning and normalization
+Cleaning and normalization
         ↓
 CV hash generation
         ↓
 Payload preparation
         ↓
-OpenAI-based resume analysis
+OpenAI analysis
         ↓
 ATS score and structured feedback
         ↓
 JSON response returned to the platform
 ```
 
----
-
-## ATS Analysis Example
+## Analysis Example
 
 <div align="center">
 
@@ -118,44 +76,27 @@ JSON response returned to the platform
 
 </div>
 
-The ATS engine generates:
-
-* ATS score
-* ATS level
-* Resume strengths
-* Resume weaknesses
-* Missing keywords
-* Actionable recommendations
-* Structured resume summary
-
----
-
-## Example JSON Output
+## Response Shape
 
 ```json
 {
   "success": true,
-  "userId": 139,
-  "chatId": 35,
-  "cvId": 35,
+  "userId": 1,
+  "cvId": 1,
   "atsScore": 78,
   "atsLevel": "Good",
-  "status": "Good",
-  "summary": "Backend Software Developer with 2 years of experience in building scalable server-side systems and integrating AI solutions.",
+  "summary": "Backend developer with 2 years of experience in server-side systems and AI integration.",
   "strengths": [
-    "Strong technical skills in multiple programming languages and frameworks",
-    "Experience with AI integration and scalable system development",
-    "Active involvement in technical content creation and leadership roles"
+    "Strong technical skills across multiple languages and frameworks",
+    "Experience with AI integration"
   ],
   "weaknesses": [
-    "Lack of measurable achievements in professional experience",
-    "Projects lack specific outcomes or metrics",
-    "Formatting could be improved for better readability"
+    "No measurable achievements in professional experience",
+    "Projects lack specific outcomes or metrics"
   ],
   "recommendations": [
-    "Add measurable achievements to the professional experience section, such as performance improvements, efficiency gains, or completed project impact.",
-    "Include specific outcomes for projects to demonstrate business or technical value.",
-    "Improve formatting consistency by using clear section headings, aligned dates, and concise bullet points."
+    "Add measurable achievements such as performance improvements or project impact.",
+    "Include specific outcomes for each project."
   ],
   "isAnalyzed": true
 }
@@ -163,26 +104,9 @@ The ATS engine generates:
 
 ---
 
-# 2. Recruiter-Side Semantic Recruitment Engine
+# 2. Semantic Recruitment Engine (Recruiter Side)
 
-## Purpose
-
-The **Semantic Recruitment Engine** helps companies and recruiters search for candidates using meaning and technical context instead of relying only on exact keyword matching.
-
-It focuses on:
-
-* Candidate preprocessing
-* Vector embeddings generation
-* Candidate vector indexing
-* Pinecone vector storage
-* Semantic candidate retrieval
-* Cohere reranking
-* AI-assisted candidate matching
-* Structured JSON response generation
-
----
-
-## AI Recruitment Engine Architecture
+Recruiters describe the candidate they need in normal language. The engine finds candidates by meaning rather than exact keywords, reranks them, and returns structured matches.
 
 <div align="center">
 
@@ -190,96 +114,61 @@ It focuses on:
 
 </div>
 
-This architecture represents the recruiter-side AI recruitment engine responsible for candidate preprocessing, vector indexing, semantic retrieval, intelligent reranking, and AI-powered hiring automation.
+## Components
 
----
-
-## Recruiter-Side Features
-
-| Feature                 | Description                                                               |
-| ----------------------- | ------------------------------------------------------------------------- |
-| Candidate Preprocessing | Prepares candidate skills, projects, experience, and portfolio data       |
-| OpenAI Embeddings       | Converts candidate data and recruiter queries into vector representations |
-| Pinecone Vector Storage | Stores candidate vectors for fast semantic retrieval                      |
-| Semantic Search         | Retrieves candidates based on meaning, not exact keywords                 |
-| Cohere Reranking        | Improves candidate ranking relevance                                      |
-| Natural Language Search | Allows recruiters to search using normal hiring language                  |
-| Candidate Matching      | Returns candidates based on technical context and profile relevance       |
-| Structured JSON         | Returns clean results that can be consumed by the platform                |
-
----
-
-## Recruitment Workflow
-
-```text
-Recruiter Request
-        ↓
-Candidate Preprocessing
-        ↓
-Vector Embeddings Generation
-        ↓
-Pinecone Vector Storage
-        ↓
-Semantic Candidate Retrieval
-        ↓
-Cohere Reranking
-        ↓
-AI Recruitment Assistant
-        ↓
-Structured JSON Response
-```
-
----
+| Component | Role |
+|---|---|
+| Candidate preprocessing | Prepares skills, projects, experience, and portfolio data |
+| OpenAI Embeddings | Converts candidate data and recruiter queries into vectors |
+| Pinecone | Stores candidate vectors for fast semantic retrieval |
+| Cohere Reranking | Improves the relevance order of the retrieved candidates |
+| OpenAI chat model | Generates the match explanation for each candidate |
 
 ## Candidate Indexing Flow
 
-```text
-Candidate profile created or updated
-        ↓
-Collect skills, projects, experiences, and portfolio data
-        ↓
-Normalize candidate text
-        ↓
-Split and prepare profile content
-        ↓
-Generate vector embeddings
-        ↓
-Store candidate vectors in Pinecone
-```
+Runs when a candidate profile is created or updated.
 
----
+```text
+Profile created or updated
+        ↓
+Collect skills, projects, experience, and portfolio data
+        ↓
+Normalize text
+        ↓
+Split into chunks (Recursive Character Text Splitter)
+        ↓
+Generate embeddings
+        ↓
+Store vectors in Pinecone
+```
 
 ## Semantic Search Flow
 
+Runs when a company submits a search query.
+
 ```text
-Company submits a natural language search query
+Natural language query
         ↓
-Normalize recruiter request
+Normalize request
         ↓
-Generate query embeddings
+Generate query embedding
         ↓
-Search candidate vector database
+Search Pinecone
         ↓
-Retrieve semantically relevant candidates
+Rerank results with Cohere
         ↓
-Rerank candidate results
-        ↓
-Return structured candidate matches
+Return structured matches
 ```
 
----
-
-## Example Recruiter Query
+## Example Query
 
 ```text
 Need a React developer with experience in AI automation, dashboards, and API integration
 ```
 
-Instead of searching only for exact keywords, the workflow understands the meaning behind the query and returns candidates whose profiles match the technical context.
+The query is matched against candidate profiles by meaning, so a candidate who built dashboards and AI workflows can match even if the exact words differ.
 
----
-
-## Example JSON Output
+## Response Shape (illustrative)
 
 ```json
 {
@@ -287,11 +176,10 @@ Instead of searching only for exact keywords, the workflow understands the meani
   "query": "Need a React developer with experience in AI automation and dashboards",
   "matches": [
     {
-      "candidateId": 21,
-      "name": "Candidate Name",
+      "candidateId": 1,
       "matchScore": 0.91,
       "matchedSkills": ["React.js", "API Integration", "AI Automation"],
-      "reason": "Candidate has strong React experience, dashboard projects, and AI workflow integration exposure."
+      "reason": "Strong React experience, dashboard projects, and AI workflow integration."
     }
   ]
 }
@@ -299,72 +187,32 @@ Instead of searching only for exact keywords, the workflow understands the meani
 
 ---
 
-# Technologies Used
+# Technologies
 
-## Automation
-
-* n8n
-* Webhooks
-* Workflow orchestration
-* API routing
-
-## AI and Search
-
-* OpenAI Chat Models
-* OpenAI Embeddings
-* Pinecone Vector Database
-* Cohere Reranking
-* Semantic Search
-* Vector Retrieval
-
-## Processing
-
-* PDF extraction
-* JavaScript preprocessing
-* Resume normalization
-* Candidate profile normalization
-* JSON response formatting
-
-## Platform Integration
-
-* Webhook-based APIs
-* Structured workflow pipelines
-* Backend integration
-* Frontend-ready structured responses
+| Area | Tools |
+|---|---|
+| Orchestration | n8n, Webhooks |
+| AI | OpenAI chat models, OpenAI Embeddings |
+| Search | Pinecone, Cohere Reranking |
+| Processing | PDF extraction, JavaScript preprocessing, JSON formatting |
 
 ---
 
 # My Contribution
 
-My contribution in the AI layer focused on building and supporting workflow logic that connects the recruitment platform with AI-powered processing.
-
-| Area                 | Contribution                                                            |
-| -------------------- | ----------------------------------------------------------------------- |
-| n8n Workflows        | Designed and supported candidate-side and recruiter-side workflow logic |
-| OpenAI Integration   | Connected resume and recruitment data with AI models                    |
-| ATS Analysis         | Supported resume scoring and structured feedback generation             |
-| PDF Processing       | Supported resume extraction, cleaning, and preprocessing                |
-| Semantic Search      | Worked with candidate matching concepts based on embeddings and context |
-| Pinecone Integration | Supported vector-based candidate search and indexing concepts           |
-| JSON Outputs         | Structured AI responses for backend storage and frontend display        |
-| Platform Integration | Supported webhook communication between the platform and AI workflows   |
-
----
-
-# Development Highlights
-
-* Built candidate-side AI workflows for resume analysis and ATS scoring
-* Supported recruiter-side semantic search and candidate matching logic
-* Used n8n as an orchestration layer for AI workflow automation
-* Connected OpenAI models with resume and candidate data
-* Worked with structured JSON outputs for platform integration
-* Supported vector search concepts for intelligent recruitment matching
-* Helped build an AI layer that delivers real business value inside TechNetwork
+| Area | What I did |
+|---|---|
+| n8n workflows | Built the resume analysis and recruitment workflows |
+| OpenAI integration | Connected CV and candidate data to OpenAI for analysis and matching |
+| ATS analysis | Built CV scoring and structured feedback generation |
+| PDF processing | Built extraction, cleaning, and preprocessing of uploaded CVs |
+| Vector search | Built candidate indexing and semantic search with Pinecone and Cohere |
+| Platform integration | Connected the workflows to the Laravel backend through webhooks and returned frontend-ready JSON |
 
 ---
 
 # Related Documentation
 
-* [Back to TechNetwork Overview](./README.md)
-* [View Frontend Documentation](./frontend-development.md)
-* [View Public AI Workflow Repository](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer)
+- [Back to Overview](./README.md)
+- [Frontend Documentation](./frontend-development.md)
+- [n8n Workflow Files](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)

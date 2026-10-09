@@ -1,57 +1,34 @@
 <div align="center">
 
-# Alpha — Backend & AI Automation
+# Alpha: Backend & AI Automation
 
-### Building the backend logic behind a financial system where **one wrong number matters.**
+### The backend and AI automation behind a personal finance platform where one wrong number breaks the whole picture
 
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-5.x-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![n8n](https://img.shields.io/badge/n8n-AI%20Automation-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-AI%20Integration-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![Vitest](https://img.shields.io/badge/Vitest-Testing-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
 
-<br>
-
-**Backend Engineering • Financial Logic • Database Consistency • AI Automation**
-
-<br>
-
-[🔗 View AlphaAPP Repository](https://github.com/mohammadbzoor/AlphaAPP)
+[AlphaAPP Repository](https://github.com/mohammadbzoor/AlphaAPP) •
+[n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/03_Alpha_Finance)
 
 </div>
 
 ---
 
-## 👨‍💻 My Role
+## Overview
 
-My main contribution to **Alpha** was focused on the **Backend** and the **AI automation layer using n8n**.
+Alpha is a personal finance and budgeting platform built by Team Alpha for the **FinTech Rally Hackathon 2026**, organized by Jordan Payments & Clearing Company (JoPACC) and JOIN Fincubator, representing Al al-Bayt University.
 
-I worked primarily with:
+**My role:** the backend (Node.js, Express, MySQL) and the AI automation layer (n8n, OpenAI). The mobile app and other parts were built by my teammates.
 
-- **Node.js**
-- **Express.js**
-- **MySQL**
-- **REST APIs**
-- **Financial business logic**
-- **Database transactions**
-- **Concurrency control**
-- **n8n**
-- **OpenAI models**
-- **Automated AI workflows**
-
-> ### 🧠 The biggest lesson from Alpha
->
-> **Understand the logic before you implement the code.**
-
-In financial software, the difficult part is not simply creating an endpoint or connecting a database.
-
-The real challenge is understanding how every financial value is connected to the others.
+In financial software, the hard part is not creating endpoints. It is keeping every number consistent with the others. Income, savings, an emergency fund, and goals are all connected, so a change in one value affects several others.
 
 ---
 
-## 💰 Financial Logic
-
-Alpha is built around interconnected financial concepts:
+## Financial Model
 
 ```text
 Income
@@ -60,87 +37,48 @@ Income
 Financial Cycle
    │
    ├── Fixed Commitments
-   │
    ├── Emergency Fund
-   │
    ├── Financial Goals
-   │
    └── Unallocated Savings
-````
+```
 
-A change in one value can affect several other calculations.
-
-That meant I had to understand questions such as:
-
-* What exactly does a financial cycle represent?
-* In what order should savings be allocated?
-* How is the emergency fund funded?
-* What happens when income changes?
-* What happens when expenses exceed the budget?
-* How do financial goals remain consistent after edits or reallocations?
-* What happens when two operations modify the same financial data simultaneously?
-
-The core principle was:
+The backend enforces one core rule so savings are never counted twice:
 
 ```text
-One number changes
-        ↓
-Related calculations change
-        ↓
-Other financial values are affected
-        ↓
-The final financial state must remain consistent
+Unallocated Savings = Planned Savings − Emergency Fund − Σ Goal Allocations
 ```
+
+A financial cycle moves through a defined lifecycle:
+
+```text
+Draft → Active → Settlement Preview → Settlement → Closed
+```
+
+Cycles start on a user-defined payday instead of a fixed calendar month, and budgets follow a Needs / Wants / Savings split.
 
 ---
 
-# 🏗️ Backend Architecture
+## Backend Architecture
 
-The backend follows a layered architecture designed to keep business logic separated from API and database concerns.
+A layered architecture keeps business logic separate from the API and the database.
 
 ```text
-Client
-  │
-  ▼
-REST API
-  │
-  ▼
-Routes
-  │
-  ▼
-Controllers
-  │
-  ▼
-Services / Business Logic
-  │
-  ▼
-Repositories / Data Access
-  │
-  ▼
-MySQL
+Client → REST API → Routes → Controllers → Services (business logic) → Repositories → MySQL
 ```
 
-### Core Technologies
-
-| Technology        | Purpose             |
-| ----------------- | ------------------- |
-| 🟢 **Node.js**    | Backend runtime     |
-| ⚫ **Express.js**  | REST API framework  |
-| 🔵 **MySQL**      | Relational database |
-| 🔐 **JWT**        | Authentication      |
-| 🔒 **bcrypt**     | Password hashing    |
-| 🛡️ **Helmet**    | HTTP security       |
-| 🚦 **Rate Limit** | Request protection  |
-| ✅ **Validator**   | Input validation    |
-| 🧪 **Vitest**     | Automated testing   |
+| Technology | Purpose |
+|---|---|
+| Node.js, Express.js | Runtime and REST API |
+| MySQL | Relational database, 26 sequential migration scripts |
+| JWT, bcrypt | Authentication and password hashing |
+| Helmet, Rate Limiting | HTTP security and request throttling |
+| Vitest | Automated tests |
 
 ---
 
-# 🎯 Financial Goals & Ledger
+## Goals and Ledger
 
-Financial goals are not treated as simple numeric fields.
-
-Each contribution is tracked through a dedicated financial ledger.
+Financial goals are not stored as a single number. Every contribution is an immutable ledger entry, which gives a permanent audit trail.
 
 ```text
 Financial Goal
@@ -151,47 +89,19 @@ Financial Goal
       └── Current Balance
 ```
 
-For concurrency-sensitive operations, the backend uses database transactions and row-level locking.
+For operations that modify related records at the same time, the backend uses MySQL transactions with row-level locking:
 
 ```sql
 SELECT ... FOR UPDATE;
 ```
 
-This helps prevent race conditions when multiple operations attempt to modify related financial records simultaneously.
+This prevents race conditions, for example when the same user changes data from two devices.
 
 ---
 
-# 🛡️ Financial Consistency
+## AI Automation with n8n
 
-One of the most important challenges was preventing financial values from becoming inconsistent or being counted more than once.
-
-The savings system follows a connected model:
-
-```text
-Planned Savings
-      │
-      ├── Emergency Fund
-      │
-      ├── Goal Allocations
-      │
-      └── Remaining Unallocated Savings
-```
-
-Instead of treating each number independently, the backend maintains the relationships between these values.
-
----
-
-# 🤖 n8n & AI Automation
-
-A major part of my backend work was building the **AI automation layer using n8n** and connecting Alpha with **OpenAI models**.
-
-The goal was not simply to add AI.
-
-The goal was to make AI understand the user's **actual financial context**.
-
-<div align="center">
-
-### AI Processing Pipeline
+I built the AI layer with n8n and OpenAI models. The goal was for the AI to work with the user's **actual financial context** instead of acting as a generic chatbot.
 
 ```text
 Alpha Backend
@@ -209,254 +119,63 @@ Build Response
 Alpha Application
 ```
 
-</div>
+Each capability is a separate workflow, so prompts, models, and validation rules can change without affecting the others.
 
-Each capability was designed as an independent workflow so it could evolve without tightly coupling the entire AI system.
+| Capability | What it does |
+|---|---|
+| Financial assistant | Answers using the user's current cycle, income, expenses, goals, and savings |
+| Smart notifications | Generates notifications from the user's current financial data |
+| Voice financial analyst | Turns financial insights into an audio file |
+| Voice to transaction | Speech-to-text, then AI entity extraction into a structured transaction |
+| Receipt to transaction | OCR, then normalization into a transaction candidate |
 
----
-
-## 🔔 Smart Financial Notifications
-
-Instead of relying only on static templates, Alpha can generate notifications based on the user's current financial context.
-
-```text
-Financial Data
-      ↓
-Context Preparation
-      ↓
-n8n
-      ↓
-AI Analysis
-      ↓
-Notification Generation
-      ↓
-Final Notification
-```
+Voice and receipt entries go through a **user review step** before being saved, so extracted data is verified before it becomes part of the permanent record.
 
 ---
 
-## 💬 Context-Aware Financial Assistant
+## Security and Reliability
 
-The assistant is designed around the user's actual financial state.
-
-The backend can provide context such as:
-
-| Context            | Example                     |
-| ------------------ | --------------------------- |
-| 📅 Current Cycle   | Active financial cycle      |
-| 💰 Income          | Current income              |
-| 💸 Expenses        | Recent spending             |
-| 🎯 Goals           | Active financial goals      |
-| 🏦 Savings         | Current allocations         |
-| 📊 Financial State | Current financial situation |
-
-The workflow then uses this context before generating the final AI response.
-
-This makes the assistant more contextual than a generic chatbot.
+- JWT authentication
+- bcrypt password hashing
+- Helmet security headers
+- Rate limiting on sensitive and AI endpoints
+- Parameterized database queries
+- Database transactions with row-level locking
 
 ---
 
-## 🔊 Voice Financial Analyst
+## Testing
 
-One of the most interesting features I worked on is the **Voice Financial Analyst**.
-
-Instead of presenting financial analysis only as text, the system can transform financial insights into an audio experience.
-
-```text
-Financial Data
-      ↓
-Financial Analysis
-      ↓
-AI-Generated Insights
-      ↓
-Text Processing
-      ↓
-Audio Generation
-      ↓
-Audio File
-      ↓
-User
-```
-
-> **Financial insights should not always have to be read — they can be listened to.**
+The backend is tested with Vitest (`npm run test`). The tests cover financial calculations, API behavior, data consistency, concurrency-sensitive operations, and the financial invariants described above.
 
 ---
 
-## 🧾 Automatic Transaction Extraction
+## What I Learned
 
-Alpha supports converting unstructured input into structured financial transactions.
-
-### 🎤 Voice
-
-```text
-Voice Recording
-      ↓
-Speech-to-Text
-      ↓
-AI Entity Extraction
-      ↓
-Structured Transaction
-      ↓
-User Review
-      ↓
-Database
-```
-
-### 🧾 Receipt
-
-```text
-Receipt Image
-      ↓
-OCR
-      ↓
-Extracted Text
-      ↓
-Normalization
-      ↓
-Transaction Candidate
-      ↓
-User Review
-      ↓
-Database
-```
-
-The review step ensures that automatically extracted financial information is verified before becoming part of the permanent financial record.
-
----
-
-# 🧩 Modular AI Workflows
-
-Each AI feature follows the same general architecture:
-
-|   Step | Responsibility       |
-| -----: | -------------------- |
-| **01** | Prepare Context      |
-| **02** | Invoke AI Model      |
-| **03** | Validate Output      |
-| **04** | Build Final Response |
-
-This modular approach allows:
-
-* Chat to evolve independently
-* Notifications to evolve independently
-* Voice analysis to evolve independently
-* Transaction extraction to evolve independently
-
-This was especially useful because AI prompts, models, validation rules, and response structures can change independently.
-
----
-
-# 🔐 Security & Reliability
-
-Because Alpha handles financial information, reliability and security were important parts of the backend.
-
-### Implemented Controls
-
-* 🔐 JWT authentication
-* 🔒 bcrypt password hashing
-* 🛡️ Helmet security headers
-* ✅ Input validation
-* 🌐 CORS configuration
-* 🚦 Rate limiting
-* 🗄️ Parameterized database queries
-* 🔄 Database transactions
-* 🔐 Row-level locking
-
-The goal was not only to make the API work, but to make financial operations behave predictably under real application conditions.
-
----
-
-# 🧪 Testing
-
-The backend includes automated testing with **Vitest**.
-
-The testing focuses on areas such as:
-
-* Financial business logic
-* API behavior
-* Calculations
-* Data consistency
-* Concurrency-sensitive operations
-* Financial invariants
-
----
-
-# 🧠 What Alpha Taught Me
-
-The biggest lesson from Alpha was not a specific framework.
-
-It was a way of thinking.
-
-Instead of starting with:
-
-> *"I need to create an endpoint."*
-
-I learned to start with:
-
-> *"What should happen financially?"*
-
-Then:
+Instead of starting with "I need an endpoint", I learned to start with "what should happen financially?":
 
 ```text
 What depends on this value?
 What changes when it changes?
 What happens if the operation fails?
-What happens if two operations happen simultaneously?
-How do I guarantee that the final state remains correct?
+What happens if two operations run at the same time?
 ```
 
-Only after understanding these questions does the implementation become clear.
-
-<div align="center">
-
-> **Understand the system first.**
-> **Model the relationships.**
-> **Define the rules.**
-> **Then write the code.**
-
-</div>
+Only after answering these did the implementation become clear.
 
 ---
 
-# 🏆 Hackathon
+## Acknowledgments
 
-Alpha was developed as part of our participation as **Team Alpha**, representing **Al al-Bayt University** at the **FinTech Rally Hackathon 2026**, organized by **Jordan Payments & Clearing Company (JoPACC)** and **JOIN Fincubator**.
+Thanks to **Dr. Sufian HRAZE** for guidance on the financial logic and calculations.
 
-Although the hackathon is over, Alpha remains one of the most important projects I have worked on.
-
----
-
-# 🙏 Acknowledgments
-
-Special thanks to **Dr. Sufian HRAZE** for his guidance in understanding the financial logic and calculation processes behind the system.
-
-And thanks to my Team Alpha teammates:
-
-* **Mariam Abusawwa**
-* **Rama Alodat**
-* **Mohmmad Aba Zaid**
-* **Tabark Abed**
+Team Alpha: Mariam Abusawwa, Rama Alodat, Mohmmad Aba Zaid, Tabark Abed.
 
 ---
 
 <div align="center">
 
-## 🔗 Project
-
-### AlphaAPP
-
-**Smart AI-Powered Personal Finance Platform**
-
-[![View Project](https://img.shields.io/badge/VIEW%20PROJECT-GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohammadbzoor/AlphaAPP)
-
-<br>
-
-### 💡 Final Thought
-
-> *What if your finance app understood your data instead of just storing it?*
-
-<br>
-
-**Backend Engineering • Financial Logic • AI Automation • n8n**
+[![AlphaAPP](https://img.shields.io/badge/AlphaAPP-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohammadbzoor/AlphaAPP)
+[![n8n Workflows](https://img.shields.io/badge/n8n-Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)](https://github.com/mohammadbzoor/n8n-workflos/tree/main/03_Alpha_Finance)
 
 </div>

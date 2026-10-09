@@ -4,131 +4,222 @@
 
 ### Next-Gen AI-Powered Recruitment Platform for the Tech Industry
 
-A graduation project built to connect developers with companies through verifiable portfolios, job opportunities, AI-powered CV analysis, and intelligent candidate matching.
+An AI-powered recruitment ecosystem connecting developers and companies through
+verifiable portfolios, job opportunities, intelligent CV analysis,
+ATS scoring, semantic search, and AI-powered candidate matching.
 
 <br />
 
-[![React](https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge\&logo=react\&logoColor=black)](https://react.dev/)
-[![AI Workflows](https://img.shields.io/badge/AI%20Workflows-n8n%20%2B%20OpenAI-EA4B71?style=for-the-badge)](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer)
-[![OpenAI](https://img.shields.io/badge/OpenAI-LLM%20Integration-412991?style=for-the-badge\&logo=openai\&logoColor=white)](https://openai.com/)
-[![Pinecone](https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge)](https://www.pinecone.io/)
+https://img.shields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white](https://technetworkfront.laravel.cloud/)
+https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black](https://react.dev/)
+https://img.shields.io/badge/AI%20Workflows-n8n%20%2B%20OpenAI-EA4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
+https://img.shields.io/badge/OpenAI-LLM%20Integration-412991?style=for-the-badge&logo=openai&logoColor=white](https://openai.com/)
+https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge](https://www.pinecone.io/)
+
+<br />
+
+### 🌐 [View Live Platform](https://technetworkfront.laravel.cloud/)
+
+### 🤖 [Explore AI & n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 
 </div>
 
 ---
 
-## Overview
+## 🚀 Overview
 
 **TechNetwork** is an intelligent recruitment ecosystem designed specifically for the tech industry.
 
-The platform helps developers build rich, verifiable portfolios that include skills, projects, experiences, and CV data. It also helps companies discover suitable candidates using AI-powered CV analysis, ATS scoring, semantic search, and intelligent candidate matching.
+The platform connects **developers and companies** through a modern recruitment experience powered by structured developer portfolios, job opportunities, AI-assisted CV analysis, ATS scoring, semantic search, and intelligent candidate matching.
 
-This project was developed as a graduation project at **Al al-Bayt University**, Faculty of Information Technology, Computer Science Department.
+Developers can create rich professional profiles containing their skills, projects, experience, certificates, and CV data.
 
----
+Companies can publish opportunities, explore developer profiles, and use AI-powered recruitment tools to identify candidates based on technical requirements and contextual relevance.
 
-## My Contribution
-
-My role in TechNetwork focused on two main areas:
-
-| Area                 | Description                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Frontend Development | Building React.js user interfaces, connecting the frontend with APIs, and creating user flows for developers and companies |
-| AI Pipelines         | Designing and supporting AI workflows for CV analysis, ATS scoring, candidate indexing, and semantic recruitment matching  |
+TechNetwork was developed as a **graduation project at Al al-Bayt University**, Faculty of Information Technology, Computer Science Department.
 
 ---
 
-## Documentation Sections
+## 🌐 Live Project
 
-This documentation is divided into two focused parts:
+A live deployment of **TechNetwork** is available online.
 
-| Section              | Description                                                                                                      | Link                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Frontend Development | Details about the React.js frontend work, UI structure, API integration, and user experience                     | [View Frontend Docs](./frontend-development.md) |
-| AI Pipelines         | Details about the AI workflows, n8n automation, OpenAI integration, CV analysis, and semantic candidate matching | [View AI Pipeline Docs](./ai-pipelines.md)      |
+You can explore the actual platform, including the user experience, developer and company flows, recruitment features, and other implemented functionality.
 
----
-
-## Platform Features
-
-| Feature                  | Description                                                                            |
-| ------------------------ | -------------------------------------------------------------------------------------- |
-| Developer Portfolios     | Developers can build rich profiles with skills, projects, experience, and certificates |
-| Company Profiles         | Companies can manage their identity and recruitment presence                           |
-| Job Board                | Companies can publish jobs and developers can apply                                    |
-| AI CV Analysis           | Uploaded resumes can be analyzed and scored                                            |
-| ATS Scoring              | The system provides resume scoring and improvement suggestions                         |
-| Candidate Matching       | Companies can search for candidates using natural language                             |
-| Semantic Search          | Candidate profiles are matched by meaning, not only keywords                           |
-| AI Recruitment Assistant | Helps recruiters find suitable developers based on technical context                   |
+### 👉 [Launch TechNetwork Live](https://technetworkfront.laravel.cloud/)
 
 ---
 
-## Tech Stack
+## ✨ Platform Features
+
+### 👨‍💻 Developer Portfolios
+
+Developers can build structured professional profiles containing:
+
+- Technical skills
+- Projects
+- Work experience
+- Certificates
+- Education
+- CV information
+- Professional details
+
+---
+
+### 🏢 Company Profiles
+
+Companies can create and manage their presence on the platform and interact with developers through the recruitment ecosystem.
+
+---
+
+### 💼 Job Board
+
+Companies can publish job opportunities while developers can browse available positions and apply directly through the platform.
+
+---
+
+### 🤖 AI CV Analysis
+
+Uploaded resumes can be processed through AI-powered workflows to extract and analyze professional information.
+
+The AI layer helps transform CV data into structured information that can be used by other recruitment features.
+
+---
+
+### 📊 ATS Scoring
+
+The platform supports resume evaluation functionality designed to analyze CV quality and provide useful feedback and improvement suggestions.
+
+---
+
+### 🎯 Intelligent Candidate Matching
+
+Recruiters can discover developers based on job requirements and technical context.
+
+Instead of relying only on traditional keyword matching, the platform uses AI-assisted matching to improve candidate discovery.
+
+---
+
+### 🔎 Semantic Search
+
+Candidate information can be indexed using vector embeddings, allowing the recruitment system to search based on **meaning and context**, rather than relying exclusively on exact keyword matches.
+
+---
+
+### 🧠 AI Recruitment Assistant
+
+AI-assisted workflows help companies identify potentially relevant developers based on:
+
+- Technical skills
+- Experience
+- Candidate profile data
+- CV information
+- Job requirements
+- Semantic similarity
+
+---
+
+## 👨‍💻 My Contribution
+
+My contribution to **TechNetwork** focused primarily on two major areas:
+
+### Frontend Development
+
+I contributed to building and integrating the user-facing application using **React.js**.
+
+My frontend work included:
+
+- Building React user interfaces
+- Creating reusable frontend components
+- Implementing application pages and layouts
+- Connecting frontend interfaces with backend APIs
+- Handling API responses and application states
+- Building developer and company user flows
+- Implementing responsive interfaces
+- Supporting the overall user experience
+
+---
+
+### AI & Automation Pipelines
+
+I also worked on the AI and automation layer of TechNetwork using **n8n**, **OpenAI**, and vector-based search technologies.
+
+This work included workflows related to:
+
+- CV processing
+- AI-powered resume analysis
+- ATS scoring
+- Candidate data processing
+- OpenAI integrations
+- Candidate indexing
+- Vector embeddings
+- Pinecone integration
+- Semantic candidate search
+- Intelligent candidate matching
+- Recruitment automation
+
+---
+
+## 🤖 AI & n8n Workflows
+
+The AI and automation layer of **TechNetwork** is available separately as public **n8n workflows**.
+
+These workflows demonstrate the automation architecture behind several AI-powered parts of the platform.
+
+### Included AI Concepts
+
+- n8n workflow automation
+- OpenAI integration
+- AI CV analysis
+- ATS evaluation
+- Resume data extraction
+- Candidate processing
+- Candidate indexing
+- Vector embeddings
+- Pinecone vector storage
+- Semantic search
+- Intelligent recruitment matching
+
+### 👉 [View TechNetwork n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
 
-* React.js
-* Tailwind CSS
-* Custom CSS
-* Axios
-* REST APIs
-
-### AI Pipelines
-
-* n8n
-* OpenAI
-* Webhooks
-* Pinecone
-* Semantic Search
-* Vector Embeddings
+- React.js
+- JavaScript
+- Tailwind CSS
+- Custom CSS
+- Axios
+- REST APIs
 
 ### Backend Integration
 
-* RESTful APIs
-* Laravel Backend
-* MySQL Database
-* Role-Based Access Control
+- Laravel
+- RESTful APIs
+- MySQL
+- Role-Based Access Control
+
+### AI & Automation
+
+- n8n
+- OpenAI
+- Webhooks
+- AI Automation
+- LLM Integration
+
+### Search & AI Retrieval
+
+- Pinecone
+- Vector Embeddings
+- Semantic Search
+- Vector Similarity
+- Candidate Matching
 
 ---
 
-## Related Repository
+## 🧩 Platform Architecture
 
-The AI workflow documentation and implementation details are available in a separate public repository:
-
-[View AI Workflow Repository](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer)
-
----
-
-## Team
-
-TechNetwork was developed as a graduation project by:
-
-| Role                                   | Contributor       |
-| -------------------------------------- | ----------------- |
-| Backend, System Architecture, Frontend | Abdalrhman Hamed  |
-| Frontend & AI Pipelines                | Mohammed AL Bzoor |
-
----
-
-## Repository Status
-
-This documentation is public and focuses on presenting my contribution in the frontend and AI pipeline layers of TechNetwork.
-
-The core source code may remain private depending on project ownership, deployment configuration, and academic project requirements.
-
----
-
-## Author
-
-<div align="center">
-
-### Mohammed AL Bzoor
-
-**Full Stack Developer | React & AI Automation Engineer**
-
-[![GitHub](https://img.shields.io/badge/GitHub-mohammadbzoor-181717?style=for-the-badge\&logo=github)](https://github.com/mohammadbzoor)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammed%20AL%20Bzoor-0A66C2?style=for-the-badge\&logo=linkedin)](https://www.linkedin.com/in/mohammadbzoor)
-[![AI Repository](https://img.shields.io/badge/AI%20Repository-n8n%20Resume%20Analyzer-brightgreen?style=for-the-badge)](https://github.com/mohammadbzoor/n8n-ai-resume-analyzer)
-
-</div>
+TechNetwork combines traditional web application architecture with AI-powered recruitment workflows.

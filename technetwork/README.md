@@ -10,12 +10,11 @@ ATS scoring, semantic search, and AI-powered candidate matching.
 
 <br />
 
-https://img.shields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white](https://technetworkfront.laravel.cloud/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-TechNetwork-or-the-badge&logo=googlechrome&logoColor=white](https://technetworkfront.laravel.cloud/)
 https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black
 https://img.shields.io/badge/AI-OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white
 https://img.shields.io/badge/Vector%20Search-Pinecone-000000?style=for-the-badge
-https://img.shields.io/badge/AI%20Workflows-n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
-
+[![n8n Workflows](https://img.shields.io/badge/AI%4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 <br />
 <br />
 

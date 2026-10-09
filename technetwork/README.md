@@ -9,32 +9,19 @@ An AI-powered recruitment ecosystem connecting developers and companies through
 verifiable portfolios, job opportunities, intelligent CV analysis,
 ATS scoring, semantic search, and AI-powered candidate matching.
 </p>
+<br />
 
-<br>
+![Live Demo](hields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white
+https://img.shields.io/badge/React.js-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black
+https://img.shields.io/badge/OpenAI-AI%20Integration-412991?style=for-the-badge&logo=openai&logoColor=white
+https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge
+![n8n](https://img.shieldsge/n8n-AI%20Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white
 
-<p>
-  <a href="https://technetworkfront.laravel.cloud/">
-    https://img.shields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white
-  </a>
+<br />
 
-  https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black
+🌐 [View Live Platform](https://technetworkfront.laravel.cloud/)
 
-  https://img.shields.io/badge/AI-OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white
-
-  https://img.shields.io/badge/Vector%20Search-Pinecone-000000?style=for-the-badge
-
-  <a href="https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks">
-    https://img.shields.io/badge/AI%20Workflows-n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white
-  </a>
-</p>
-
-<br>
-
-<p>
-  🌐 <a href="https://technetworkfront.laravel.cloud/"><strong>View Live Platform</strong></a>
-  &nbsp;&nbsp;•&nbsp;&nbsp;
-  🤖 <a href="https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks"><strong>Explore AI & n8n Workflows</strong></a>
-</p>
+🤖 [Explore AI & n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 
 </div>
 

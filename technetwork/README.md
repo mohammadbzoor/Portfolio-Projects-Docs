@@ -11,10 +11,10 @@ ATS scoring, semantic search, and AI-powered candidate matching.
 <br />
 
 https://img.shields.io/badge/Live%20Demo-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white](https://technetworkfront.laravel.cloud/)
-https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black](https://react.dev/)
-https://img.shields.io/badge/AI%20Workflows-n8n%20%2B%20OpenAI-EA4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
-https://img.shields.io/badge/OpenAI-LLM%20Integration-412991?style=for-the-badge&logo=openai&logoColor=white](https://openai.com/)
-https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge](https://www.pinecone.io/)
+https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black
+https://img.shields.io/badge/AI-OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white
+https://img.shields.io/badge/Vector%20Search-Pinecone-000000?style=for-the-badge
+https://img.shields.io/badge/AI%20Workflows-n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
 
 <br />
 
@@ -32,9 +32,9 @@ https://img.shields.io/badge/Pinecone-Vector%20Search-000000?style=for-the-badge
 
 The platform connects **developers and companies** through a modern recruitment experience powered by structured developer portfolios, job opportunities, AI-assisted CV analysis, ATS scoring, semantic search, and intelligent candidate matching.
 
-Developers can create rich professional profiles containing their skills, projects, experience, certificates, and CV data.
+Developers can create professional profiles containing their skills, projects, experience, certificates, and CV data.
 
-Companies can publish opportunities, explore developer profiles, and use AI-powered recruitment tools to identify candidates based on technical requirements and contextual relevance.
+Companies can publish job opportunities, explore developer profiles, and use AI-powered recruitment tools to discover suitable candidates based on technical requirements and contextual relevance.
 
 TechNetwork was developed as a **graduation project at Al al-Bayt University**, Faculty of Information Technology, Computer Science Department.
 
@@ -44,7 +44,7 @@ TechNetwork was developed as a **graduation project at Al al-Bayt University**, 
 
 A live deployment of **TechNetwork** is available online.
 
-You can explore the actual platform, including the user experience, developer and company flows, recruitment features, and other implemented functionality.
+Explore the platform, developer and company experiences, recruitment features, and AI-powered functionality.
 
 ### 👉 [Launch TechNetwork Live](https://technetworkfront.laravel.cloud/)
 
@@ -64,51 +64,35 @@ Developers can build structured professional profiles containing:
 - CV information
 - Professional details
 
----
-
 ### 🏢 Company Profiles
 
 Companies can create and manage their presence on the platform and interact with developers through the recruitment ecosystem.
 
----
-
 ### 💼 Job Board
 
-Companies can publish job opportunities while developers can browse available positions and apply directly through the platform.
-
----
+Companies can publish job opportunities while developers can browse available positions and apply through the platform.
 
 ### 🤖 AI CV Analysis
 
-Uploaded resumes can be processed through AI-powered workflows to extract and analyze professional information.
-
-The AI layer helps transform CV data into structured information that can be used by other recruitment features.
-
----
+Uploaded resumes can be processed through AI-powered workflows to extract, structure, and analyze professional information.
 
 ### 📊 ATS Scoring
 
-The platform supports resume evaluation functionality designed to analyze CV quality and provide useful feedback and improvement suggestions.
-
----
+The platform supports resume evaluation workflows designed to analyze CV quality and provide scoring, feedback, and improvement suggestions.
 
 ### 🎯 Intelligent Candidate Matching
 
-Recruiters can discover developers based on job requirements and technical context.
+Recruiters can discover developers based on job requirements, technical skills, experience, and contextual relevance.
 
 Instead of relying only on traditional keyword matching, the platform uses AI-assisted matching to improve candidate discovery.
-
----
 
 ### 🔎 Semantic Search
 
 Candidate information can be indexed using vector embeddings, allowing the recruitment system to search based on **meaning and context**, rather than relying exclusively on exact keyword matches.
 
----
-
 ### 🧠 AI Recruitment Assistant
 
-AI-assisted workflows help companies identify potentially relevant developers based on:
+AI-assisted workflows help recruiters identify potentially relevant developers based on:
 
 - Technical skills
 - Experience
@@ -121,9 +105,9 @@ AI-assisted workflows help companies identify potentially relevant developers ba
 
 ## 👨‍💻 My Contribution
 
-My contribution to **TechNetwork** focused primarily on two major areas:
+My contribution to **TechNetwork** focused primarily on two areas:
 
-### Frontend Development
+### ⚛️ Frontend Development
 
 I contributed to building and integrating the user-facing application using **React.js**.
 
@@ -138,42 +122,40 @@ My frontend work included:
 - Implementing responsive interfaces
 - Supporting the overall user experience
 
----
-
-### AI & Automation Pipelines
+### 🤖 AI & Automation Pipelines
 
 I also worked on the AI and automation layer of TechNetwork using **n8n**, **OpenAI**, and vector-based search technologies.
 
-This work included workflows related to:
+My work included:
 
 - CV processing
 - AI-powered resume analysis
 - ATS scoring
 - Candidate data processing
-- OpenAI integrations
+- OpenAI integration
 - Candidate indexing
 - Vector embeddings
 - Pinecone integration
 - Semantic candidate search
 - Intelligent candidate matching
-- Recruitment automation
+- Recruitment workflow automation
 
 ---
 
 ## 🤖 AI & n8n Workflows
 
-The AI and automation layer of **TechNetwork** is available separately as public **n8n workflows**.
+The AI and automation workflows developed for **TechNetwork** are available publicly in a separate repository.
 
-These workflows demonstrate the automation architecture behind several AI-powered parts of the platform.
+These workflows demonstrate the automation architecture behind several AI-powered features of the platform.
 
-### Included AI Concepts
+### Included AI Workflows & Concepts
 
 - n8n workflow automation
 - OpenAI integration
 - AI CV analysis
 - ATS evaluation
 - Resume data extraction
-- Candidate processing
+- Candidate data processing
 - Candidate indexing
 - Vector embeddings
 - Pinecone vector storage
@@ -207,10 +189,10 @@ These workflows demonstrate the automation architecture behind several AI-powere
 - n8n
 - OpenAI
 - Webhooks
-- AI Automation
 - LLM Integration
+- AI Automation
 
-### Search & AI Retrieval
+### Semantic Search & Retrieval
 
 - Pinecone
 - Vector Embeddings
@@ -223,3 +205,179 @@ These workflows demonstrate the automation architecture behind several AI-powere
 ## 🧩 Platform Architecture
 
 TechNetwork combines traditional web application architecture with AI-powered recruitment workflows.
+
+```text
+Developer / Company
+        │
+        ▼
+  React Frontend
+        │
+        ▼
+    REST APIs
+        │
+        ▼
+ Laravel Backend
+        │
+        ├──────────────► MySQL Database
+        │
+        ▼
+   n8n Workflows
+        │
+        ├──────────────► OpenAI
+        │
+        ├──────────────► CV Analysis
+        │
+        └──────────────► ATS Processing
+        │
+        ▼
+ Vector Embeddings
+        │
+        ▼
+     Pinecone
+        │
+        ▼
+ Semantic Candidate Search
+        │
+        ▼
+ Intelligent Candidate Matching
+```
+
+---
+
+## 🔄 AI Recruitment Flow
+
+A simplified representation of the AI recruitment pipeline:
+
+```text
+CV / Candidate Data
+        │
+        ▼
+      n8n
+        │
+        ▼
+ Data Processing
+        │
+        ▼
+     OpenAI
+        │
+        ├────► CV Analysis
+        │
+        └────► Structured Candidate Data
+        │
+        ▼
+ Vector Embeddings
+        │
+        ▼
+     Pinecone
+        │
+        ▼
+ Semantic Search
+        │
+        ▼
+ Candidate Matching
+```
+
+---
+
+## 🔗 Project Resources
+
+### 🌐 Live Platform
+
+👉 **[TechNetwork Live](https://technetworkfront.laravel.cloud/)**
+
+### 🤖 AI & Automation Workflows
+
+👉 **[TechNetwork n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)**
+
+### 💻 GitHub
+
+👉 **https://github.com/mohammadbzoor**
+
+### 🔗 LinkedIn
+
+👉 **https://www.linkedin.com/in/mohammadbzoor**
+
+---
+
+## 👥 Team
+
+### Abdalrhman Hamed
+
+**Backend, System Architecture & Frontend**
+
+Contributed to the backend architecture, system development, frontend, and overall application implementation.
+
+### Mohammed AL Bzoor
+
+**Frontend Development & AI Pipelines**
+
+Contributed to the React frontend, API integration, AI automation workflows, CV analysis pipelines, semantic search, and intelligent candidate matching.
+
+---
+
+## 📌 Repository Status
+
+This repository focuses on documenting and presenting my contribution to **TechNetwork**, particularly in:
+
+- Frontend development
+- React application
+- API integration
+- AI workflows
+- n8n automation
+- CV analysis
+- Semantic search
+- Candidate matching
+
+The core application source code may remain private depending on project ownership, deployment configuration, and academic project requirements.
+
+The AI and automation workflows related to my contribution are publicly available for technical review.
+
+---
+
+## 🎓 Academic Project
+
+**Project:** TechNetwork  
+**Type:** Graduation Project  
+**University:** Al al-Bayt University  
+**Faculty:** Faculty of Information Technology  
+**Department:** Computer Science  
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+### Mohammed AL Bzoor
+
+**Full-Stack Developer | Web • AI • Automation**
+
+Computer Science Graduate | Al al-Bayt University 🎓
+
+<br />
+
+https://img.shields.io/badge/GitHub-mohammadbzoor-181717?style=for-the-badge&logo=github&logoColor=white](https://github.com/mohammadbzoor)
+https://img.shields.io/badge/LinkedIn-Mohammed%20AL%20Bzoor-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white](https://www.linkedin.com/in/mohammadbzoor)
+https://img.shields.io/badge/Live-TechNetwork-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white](https://technetworkfront.laravel.cloud/)
+https://img.shields.io/badge/n8n-AI%20Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks)
+
+<br />
+
+**Building web applications, AI-powered workflows, and practical automation solutions.**
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ TechNetwork
+
+**Connecting Developers, Companies & AI-Powered Recruitment**
+
+[🌐 Live Demo](https://technetworkfront.laravel.cloud/) •
+[🤖 n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks) •
+[💻 GitHub](https://github.com/mohammadbzoor) •
+[🔗 LinkedIn](https://www.linkedin.com/in/mohammadbzoor)
+
+</div>

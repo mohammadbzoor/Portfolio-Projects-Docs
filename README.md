@@ -6,7 +6,7 @@
 
 Project overviews, live demos, tech stacks, and my role in each project.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Website-brightgreen?style=for-the-badge)](https://profaile-19e99.web.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Website-brightgreen?style=for-the-badge)](https://mohammadbzoor.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-mohammadbzoor-181717?style=for-the-badge&logo=github)](https://github.com/mohammadbzoor)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammed%20AL%20Bzoor-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohammadbzoor)
 

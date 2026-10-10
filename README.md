@@ -20,6 +20,7 @@ Project overviews, live demos, tech stacks, and my role in each project.
 |---|---|
 | Backend engineering (transactions, concurrency, tests) | [Alpha](./ALPHA/README.md) |
 | AI pipelines (RAG, embeddings, reranking) | [TechNetwork](./technetwork/README.md) and [n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos) |
+| n8n workflows behind a real product backend | [Alpha Finance workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/03_Alpha_Finance) |
 | A complete React application with a live demo | [Tesla Coffee](https://teslacoffee-04.web.app/) |
 
 ---
@@ -28,8 +29,8 @@ Project overviews, live demos, tech stacks, and my role in each project.
 
 | Project | Role | Stack | Live | Code and Docs |
 |---|---|---|---|---|
-| **Alpha** | Backend and AI automation. Personal finance platform built by a team of 5 for the FinTech Rally Hackathon 2026 | Node.js, Express, MySQL, n8n, OpenAI, Vitest | — | [Code](https://github.com/mohammadbzoor/AlphaAPP) • [Docs](./ALPHA/README.md) |
-| **TechNetwork** | Frontend and AI pipelines. AI recruitment platform, graduation project by a team of 2 (backend by teammate) | React.js, n8n, OpenAI, Pinecone, Cohere | [Live](https://technetworkfront.laravel.cloud/) | [AI Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks) • [Docs](./technetwork/README.md) |
+| **Alpha** | Backend and AI automation. Personal finance platform built by a team of 5 for the FinTech Rally Hackathon 2026. I built the Node.js backend and five n8n workflows (receipt OCR, transaction analysis, financial assistant with memory, notifications, OTP email verification) | Node.js, Express, MySQL, n8n, OpenAI, Vitest | — | [Code](https://github.com/mohammadbzoor/AlphaAPP) • [n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/03_Alpha_Finance) • [Docs](./ALPHA/README.md) |
+| **TechNetwork** | Frontend and AI pipelines. AI recruitment platform, graduation project by a team of 2 (backend by teammate) | React.js, n8n, OpenAI, Pinecone, Cohere | [Live](https://technetworkfront.laravel.cloud/) | [n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/teckNetworks) • [Docs](./technetwork/README.md) |
 | **AI Automation Workflows** | 22 n8n workflows across 7 projects: CV platform, RAG matching, WhatsApp/Messenger agent, MCP Telegram assistant | n8n, OpenAI, Pinecone, Cohere, MCP, MySQL, Telegram, WhatsApp | — | [Workflows](https://github.com/mohammadbzoor/n8n-workflos) |
 | **Tesla Coffee** | Cafe POS and digital menu, built for a cafe client | React 19, Firebase, React Router, Framer Motion | [Live](https://teslacoffee-04.web.app/) | [Code](https://github.com/mohammadbzoor/TeslaCoffee) • [Docs](./Tesla%20coffee%20management%20system/README.md) |
 
@@ -46,7 +47,7 @@ Project overviews, live demos, tech stacks, and my role in each project.
 | **Online Quiz Platform** | Educational web app | React.js, Firebase, SCSS | [Live](https://singup-12a91.web.app/) | [Docs](./online-quiz-platform/README.md) |
 | **Time4Study** | Study planner | React.js, Vite, Firebase, Bootstrap, Tailwind CSS | — | [Docs](./time4study-study-planner/README.md) |
 | **TBR3** | Donation platform front end | React.js, Tailwind CSS, React Router | — | [Docs](./tbr3-react-frontend/README.md) |
-| **Portfolio Web App** | Personal portfolio | React.js, Firebase | [Live](https://profaile-19e99.web.app/) | [Docs](./portfolio-web-app/README.md) |
+| **Portfolio Web App** | Personal portfolio | React.js, Firebase | [Live](https://mohammadbzoor.com/) | [Docs](./portfolio-web-app/README.md) |
 
 ---
 
@@ -97,6 +98,6 @@ Alpha, Tesla Coffee, the E-Commerce API, and the n8n workflows have public repos
 
 [![GitHub](https://img.shields.io/badge/GitHub-mohammadbzoor-181717?style=for-the-badge&logo=github)](https://github.com/mohammadbzoor)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammed%20AL%20Bzoor-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohammadbzoor)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Website-brightgreen?style=for-the-badge)](https://profaile-19e99.web.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Website-brightgreen?style=for-the-badge)](https://mohammadbzoor.com/)
 
 </div>

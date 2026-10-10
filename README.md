@@ -20,8 +20,8 @@ Project overviews, live demos, tech stacks, and my role in each project.
 |---|---|
 | Backend engineering (transactions, concurrency, tests) | [Alpha](./ALPHA/README.md) |
 | AI pipelines (RAG, embeddings, reranking) | [TechNetwork](./technetwork/README.md) and [n8n Workflows](https://github.com/mohammadbzoor/n8n-workflos) |
-| n8n workflows behind a real product backend | [Alpha Finance workflows](https://github.com/mohammadbzoor/n8n-workflos/tree/main/03_Alpha_Finance) |
-| A complete React application with a live demo | [Tesla Coffee](https://teslacoffee-04.web.app/) |
+| n8n workflows | [N8N workflows](https://github.com/mohammadbzoor/n8n-workflos/blob/main/README.md) |
+| A complete React application with a live demo | [Tesla Coffee](https://teslacoffee-04.web.app/) 
 
 ---
 
